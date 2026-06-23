@@ -28,7 +28,13 @@ export function Navbar() {
           <Link href="/how-we-work" className="transition-colors hover:text-primary">How We Work</Link>
           <Link href="/track-record" className="transition-colors hover:text-primary">Track Record</Link>
           <Link href="/the-math" className="transition-colors hover:text-primary">The Math</Link>
-          <Link href="/founder" className="transition-colors hover:text-primary">Our Founder</Link>
+          <div className="group relative">
+            <Link href="/founder" className="transition-colors hover:text-primary">Our Founder</Link>
+            <div className="absolute right-0 top-full hidden w-44 flex-col bg-popover border p-2 group-hover:flex">
+              <Link href="/founder" className="block px-4 py-2 hover:bg-muted">Our Founder</Link>
+              <Link href="/advisors" className="block px-4 py-2 hover:bg-muted">Advisors & Board</Link>
+            </div>
+          </div>
         </nav>
 
         <div className="hidden md:flex items-center">
@@ -53,6 +59,7 @@ export function Navbar() {
             <Link href="/track-record" onClick={() => setIsOpen(false)}>Track Record</Link>
             <Link href="/the-math" onClick={() => setIsOpen(false)}>The Math</Link>
             <Link href="/founder" onClick={() => setIsOpen(false)}>Our Founder</Link>
+            <Link href="/advisors" onClick={() => setIsOpen(false)} className="pl-4 text-muted-foreground">Advisors & Board</Link>
             <Link href="/get-started" onClick={() => setIsOpen(false)}>
               <Button className="w-full">Get Started</Button>
             </Link>
