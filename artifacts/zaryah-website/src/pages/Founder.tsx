@@ -1,5 +1,6 @@
 // Source: PDF Pages 13, 14
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 
 const roles = [
   "Vice Chairman — UN Sustainable Development Council",
@@ -117,6 +118,29 @@ export default function Founder() {
                 </span>
               ))}
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Meet Advisors CTA */}
+      <section className="py-16 px-4 border-t border-border">
+        <div className="container max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col md:flex-row items-center justify-between gap-6 bg-card border border-border rounded-2xl px-10 py-8"
+          >
+            <div>
+              <h3 className="text-xl font-bold mb-1">The team behind the founder</h3>
+              <p className="text-muted-foreground text-sm">Senior civil servants, institutional leaders, and academic directors guiding the work.</p>
+            </div>
+            <Link href="/advisors">
+              <span className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline whitespace-nowrap">
+                Meet our advisors →
+              </span>
+            </Link>
           </motion.div>
         </div>
       </section>

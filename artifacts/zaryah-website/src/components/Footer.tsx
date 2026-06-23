@@ -29,6 +29,7 @@ export function Footer() {
               <li><Link href="/track-record" className="hover:text-primary">Track Record</Link></li>
               <li><Link href="/the-math" className="hover:text-primary">The Math</Link></li>
               <li><Link href="/founder" className="hover:text-primary">Our Founder</Link></li>
+              <li><Link href="/advisors" className="hover:text-primary">Advisors & Board</Link></li>
               <li><Link href="/get-started" className="hover:text-primary">Get Started</Link></li>
             </ul>
           </div>
