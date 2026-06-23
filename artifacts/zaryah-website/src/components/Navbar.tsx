@@ -14,7 +14,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium" style={{ fontFamily: "'Outfit', sans-serif" }}>
           <Link href="/who-we-are" className="transition-colors hover:text-primary">Who We Are</Link>
           <div className="group relative">
             <Link href="/what-we-build" className="transition-colors hover:text-primary">What We Build</Link>
