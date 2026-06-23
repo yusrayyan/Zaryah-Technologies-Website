@@ -133,7 +133,7 @@ export default function Home() {
 
       {/* CTA Section - Source: PDF Page 15/16 */}
       <section className="py-32 bg-primary text-primary-foreground text-center px-4">
-        <div className="container max-w-3xl space-y-8">
+        <div className="container max-w-3xl mx-auto space-y-8">
           <h2 className="text-5xl font-bold tracking-tight">The first conversation is on the house.</h2>
           <p className="text-2xl opacity-90">
             Bring us a problem, a sketch, or a vague hunch. We'll come back in 48 hours with a plan, a price, and a path to production.
