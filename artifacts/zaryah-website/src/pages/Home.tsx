@@ -74,7 +74,7 @@ export default function Home() {
 
       {/* Snapshot - Source: PDF Page 3 */}
       <section className="py-24 border-y">
-        <div className="container">
+        <div className="container mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { val: "5+", label: "Years in production AI" },
