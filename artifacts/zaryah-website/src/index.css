@@ -56,45 +56,52 @@
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
 
-  /* Deep Navy/Midnight Theme */
-  --background: 222 47% 7%;
-  --foreground: 210 40% 98%;
+  /* Zaryah PDF palette — near-black background, electric blue accent */
+  /* Background: pure dark #07090F */
+  --background: 228 33% 5%;
+  /* Foreground: pure white */
+  --foreground: 0 0% 100%;
 
-  --border: 217 32% 17%;
-  --input: 217 32% 17%;
-  --ring: 224 76% 48%;
+  /* Borders: very subtle dark slate */
+  --border: 225 20% 14%;
+  --input: 225 20% 14%;
+  /* Ring: electric blue */
+  --ring: 220 90% 56%;
 
-  --card: 222 47% 9%;
-  --card-foreground: 210 40% 98%;
-  --card-border: 217 32% 17%;
+  /* Cards: slightly lifted from background #0D1020 */
+  --card: 228 33% 7%;
+  --card-foreground: 0 0% 100%;
+  --card-border: 225 20% 14%;
 
-  --sidebar: 222 47% 7%;
-  --sidebar-foreground: 210 40% 98%;
-  --sidebar-border: 217 32% 17%;
-  --sidebar-primary: 224 76% 48%;
+  --sidebar: 228 33% 5%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-border: 225 20% 14%;
+  --sidebar-primary: 220 90% 56%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 217 32% 17%;
-  --sidebar-accent-foreground: 210 40% 98%;
-  --sidebar-ring: 224 76% 48%;
+  --sidebar-accent: 225 20% 14%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-ring: 220 90% 56%;
 
-  --popover: 222 47% 7%;
-  --popover-foreground: 210 40% 98%;
-  --popover-border: 217 32% 17%;
+  --popover: 228 33% 5%;
+  --popover-foreground: 0 0% 100%;
+  --popover-border: 225 20% 14%;
 
-  --primary: 224 76% 48%;
+  /* Primary: electric blue #2563EB — the PDF accent blue */
+  --primary: 220 90% 56%;
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 217 32% 17%;
-  --secondary-foreground: 210 40% 98%;
+  --secondary: 225 20% 14%;
+  --secondary-foreground: 0 0% 100%;
 
-  --muted: 217 32% 17%;
-  --muted-foreground: 215 20.2% 65.1%;
+  --muted: 225 20% 12%;
+  /* Muted text: readable grey-blue for dark background */
+  --muted-foreground: 218 15% 70%;
 
-  --accent: 217 32% 17%;
-  --accent-foreground: 210 40% 98%;
+  --accent: 225 20% 14%;
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive-foreground: 0 0% 100%;
 
   --app-font-sans: 'Inter', sans-serif;
   --app-font-serif: Georgia, serif;
