@@ -156,20 +156,6 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="mt-16 flex flex-wrap justify-center gap-4 text-xs font-bold tracking-widest text-muted-foreground text-center"
-          >
-            <span>IIT-INCUBATED</span><span>&middot;</span>
-            <span>FORBES TECH COUNCIL</span><span>&middot;</span>
-            <span>SOC 2 / ISO 27001</span><span>&middot;</span>
-            <span>MENA</span><span>&middot;</span>
-            <span>APAC</span><span>&middot;</span>
-            <span>NA</span>
-          </motion.div>
         </div>
       </section>
 

@@ -8,15 +8,8 @@ export function Footer() {
           <div className="md:col-span-2 space-y-4">
             <h3 className="text-xl font-bold tracking-tight">ZARYAH TECHNOLOGIES</h3>
             <p className="text-muted-foreground max-w-sm">
-              We build the AI software that builds your business.
+              We build the AI software that grows your business.
             </p>
-            <div className="flex flex-wrap gap-2 text-xs font-semibold tracking-wider text-muted-foreground mt-4">
-              <span>IIT-INCUBATED</span>
-              <span>&middot;</span>
-              <span>FORBES TECH COUNCIL</span>
-              <span>&middot;</span>
-              <span>SOC 2 / ISO 27001</span>
-            </div>
           </div>
           
           <div className="space-y-4">
