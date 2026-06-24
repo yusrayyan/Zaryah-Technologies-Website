@@ -65,13 +65,12 @@ export default function Home() {
           animate="visible"
           variants={staggerContainer}
         >
-          <motion.div variants={staggerItem} className="flex items-center justify-center space-x-4 text-xs font-bold tracking-widest text-primary mb-8">
-            <span className="px-3 py-1 border border-primary/20 bg-primary/10 rounded-full">PITCH DECK &middot; 2026</span>
-            <span className="text-muted-foreground">India &middot; UAE &middot; Global</span>
+          <motion.div variants={staggerItem} className="flex items-center justify-center space-x-4 text-xs font-bold tracking-widest text-muted-foreground mb-8">
+            <span>India &middot; UAE &middot; Global</span>
           </motion.div>
 
           <motion.h1 variants={staggerItem} className="text-5xl md:text-7xl font-extrabold tracking-tighter">
-            We build the AI software that builds your business.
+            We build the AI software that grows your business.
           </motion.h1>
 
           <motion.p variants={staggerItem} className="text-xl md:text-2xl text-muted-foreground font-light max-w-2xl mx-auto">
