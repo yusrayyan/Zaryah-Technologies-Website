@@ -6,8 +6,8 @@ export function Scene4() {
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setPhase(1), 800),
-      setTimeout(() => setPhase(2), 1500),
+      setTimeout(() => setPhase(1), 500),
+      setTimeout(() => setPhase(2), 1200),
     ];
     return () => timers.forEach(t => clearTimeout(t));
   }, []);
@@ -17,49 +17,48 @@ export function Scene4() {
   return (
     <motion.div 
       className="absolute inset-0 flex flex-col justify-center items-center overflow-hidden"
-      initial={{ clipPath: 'inset(100% 0 0 0)' }}
-      animate={{ clipPath: 'inset(0% 0 0 0)' }}
-      exit={{ clipPath: 'inset(0 0 100% 0)' }}
-      transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+      initial={{ clipPath: 'circle(0% at 50% 50%)' }}
+      animate={{ clipPath: 'circle(150% at 50% 50%)' }}
+      exit={{ opacity: 0, filter: 'blur(20px)' }}
+      transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
     >
-      {/* Circuit board horizontal line */}
-      <motion.div
-        className="absolute top-1/2 left-0 right-0 h-[2px] bg-[#1E293B]"
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 1, ease: 'circOut' }}
-      />
-      
-      {/* Animated dots traveling along line */}
-      {Array.from({ length: 3 }).map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#06B6D4] shadow-[0_0_10px_#06B6D4]"
-          initial={{ left: '-5%' }}
-          animate={{ left: '105%' }}
-          transition={{ duration: 4, repeat: Infinity, ease: 'linear', delay: i * 1.3 }}
-        />
-      ))}
+      {/* Circuit-node background pattern */}
+      <div className="absolute inset-0 z-0 opacity-10" style={{ 
+        backgroundImage: 'radial-gradient(#7C3AED 2px, transparent 2px)', 
+        backgroundSize: '3vw 3vw',
+        backgroundPosition: '0 0'
+      }} />
 
-      <div className="flex gap-12 relative z-10 w-[150vw]">
-        {/* Continuous scroll container */}
-        <motion.div
-          className="flex gap-12 whitespace-nowrap"
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-        >
-          {[...creds, ...creds, ...creds].map((cred, idx) => (
-            <motion.div
-              key={idx}
-              className="px-8 py-4 border border-[#2563EB] bg-[#05080F] backdrop-blur-md text-[2vw] font-mono text-[#F8FAFC]"
-              initial={{ scale: 0.9, opacity: 0, boxShadow: '0 0 0px transparent' }}
-              animate={phase >= 1 ? { scale: 1, opacity: 1, boxShadow: '0 0 20px rgba(37,99,235,0.4)' } : {}}
-              transition={{ duration: 0.5, delay: phase >= 1 ? (idx % creds.length) * 0.15 : 0 }}
-            >
-              {cred}
-            </motion.div>
-          ))}
-        </motion.div>
+      <motion.h3
+        className="text-[1.8vw] font-sans font-bold text-[#F59E0B] tracking-[0.4em] uppercase mb-[4vw] z-10"
+        initial={{ opacity: 0, y: -20 }}
+        animate={phase >= 1 ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+        transition={{ duration: 0.8 }}
+      >
+        TRUSTED BY / CERTIFIED
+      </motion.h3>
+
+      <div className="grid grid-cols-2 gap-[3vw] z-10">
+        {creds.map((cred, idx) => (
+          <motion.div
+            key={idx}
+            className="flex items-center gap-[1.5vw] px-[4vw] py-[2.5vw] border-2 border-[#7C3AED] bg-[#080612]/80 backdrop-blur-md rounded-lg"
+            initial={{ scale: 0.8, opacity: 0, boxShadow: '0 0 0px transparent' }}
+            animate={phase >= 2 ? { 
+              scale: 1, 
+              opacity: 1, 
+              boxShadow: ['0 0 0px transparent', '0 0 30px rgba(124,58,237,0.4)', '0 0 10px rgba(124,58,237,0.2)']
+            } : { scale: 0.8, opacity: 0 }}
+            transition={{ 
+              scale: { type: 'spring', stiffness: 300, damping: 20, delay: idx * 0.15 },
+              opacity: { duration: 0.3, delay: idx * 0.15 },
+              boxShadow: { duration: 1.5, delay: idx * 0.15, times: [0, 0.5, 1] }
+            }}
+          >
+            <div className="w-[1vw] h-[1vw] rounded-full bg-[#F59E0B] shadow-[0_0_10px_rgba(245,158,11,0.6)]" />
+            <span className="text-[2.2vw] font-sans font-bold text-[#FAF5FF]">{cred}</span>
+          </motion.div>
+        ))}
       </div>
     </motion.div>
   );

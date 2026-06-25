@@ -8,69 +8,77 @@ export function Scene1() {
     const timers = [
       setTimeout(() => setPhase(1), 500),
       setTimeout(() => setPhase(2), 2000),
-      setTimeout(() => setPhase(3), 3500),
-      setTimeout(() => setPhase(4), 4500),
+      setTimeout(() => setPhase(3), 3000),
+      setTimeout(() => setPhase(4), 4000),
+      setTimeout(() => setPhase(5), 5000),
     ];
     return () => timers.forEach(t => clearTimeout(t));
   }, []);
 
-  const zaryahLetters = "ZARYAH".split("");
-  const techText = "TECHNOLOGIES";
+  const zaryahText = "ZARYAH";
 
   return (
     <motion.div 
-      className="absolute inset-0 flex flex-col justify-center pl-[10vw]"
-      initial={{ clipPath: 'inset(0 100% 0 0)' }}
-      animate={{ clipPath: 'inset(0 0% 0 0)' }}
-      exit={{ clipPath: 'inset(0 0 0 100%)' }}
+      className="absolute inset-0 flex flex-col justify-center items-center text-center"
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 1.05, filter: 'blur(10px)' }}
       transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
     >
-      {/* Top Left Label */}
-      <div className="absolute top-[8vh] left-[5vw] font-mono text-[#06B6D4] text-[1.5vw] tracking-wider opacity-80">
-        // ZARYAH.TECH
-      </div>
+      {/* Top Right Label */}
+      <motion.div 
+        className="absolute top-[6vh] right-[6vw] font-mono text-[#F59E0B] text-[1.2vw] tracking-widest opacity-80"
+        initial={{ opacity: 0, x: 20 }}
+        animate={phase >= 1 ? { opacity: 0.8, x: 0 } : { opacity: 0, x: 20 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        EST. 2019 · AI STUDIO
+      </motion.div>
 
-      <div className="relative z-10">
-        <h1 className="text-[12vw] font-bold leading-none tracking-tighter flex">
-          {zaryahLetters.map((char, i) => (
-            <motion.span
-              key={i}
-              className="relative"
-              initial={{ x: -100, opacity: 0, filter: 'blur(10px)' }}
-              animate={phase >= 1 ? { x: 0, opacity: 1, filter: 'blur(0px)' } : {}}
-              transition={{ duration: 0.6, delay: i * 0.1, ease: 'easeOut' }}
-              style={{ textShadow: phase >= 1 ? '0 0 40px rgba(6, 182, 212, 0.4)' : 'none' }}
-            >
-              {char}
-            </motion.span>
-          ))}
-        </h1>
-
-        <div className="h-[4vw] mt-2 text-[#64748B] font-mono tracking-[0.5em] text-[2.5vw]">
-          {techText.split("").map((char, i) => (
-            <motion.span
-              key={i}
-              initial={{ opacity: 0 }}
-              animate={phase >= 2 ? { opacity: 1 } : {}}
-              transition={{ duration: 0.05, delay: phase >= 2 ? i * 0.08 : 0 }}
-            >
-              {char}
-            </motion.span>
-          ))}
+      <div className="relative z-10 flex flex-col items-center">
+        {/* ZARYAH Word */}
+        <div className="relative overflow-hidden">
+          <motion.h1 
+            className="text-[14vw] font-bold leading-none tracking-tighter text-[#FAF5FF] pb-[1vw]"
+            initial={{ y: '100%', opacity: 0 }}
+            animate={phase >= 2 ? { y: 0, opacity: 1 } : { y: '100%', opacity: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            style={{ fontFamily: 'var(--app-font-display)' }}
+          >
+            {zaryahText}
+          </motion.h1>
+          {/* Violet underline */}
+          <motion.div
+            className="absolute bottom-0 left-0 h-[0.8vw] bg-[#7C3AED] shadow-[0_0_20px_rgba(124,58,237,0.5)]"
+            initial={{ width: 0 }}
+            animate={phase >= 2 ? { width: '100%' } : { width: 0 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          />
         </div>
 
+        {/* TECHNOLOGIES */}
+        <motion.div 
+          className="mt-[1vw] text-[#F59E0B] font-mono tracking-[1em] text-[2vw] pl-[1em]"
+          initial={{ opacity: 0, filter: 'blur(10px)' }}
+          animate={phase >= 3 ? { opacity: 1, filter: 'blur(0px)' } : { opacity: 0, filter: 'blur(10px)' }}
+          transition={{ duration: 1 }}
+        >
+          TECHNOLOGIES
+        </motion.div>
+
+        {/* Thin gold horizontal rule */}
         <motion.div
-          className="h-[2px] bg-[#06B6D4] w-[40vw] mt-8"
-          initial={{ scaleX: 0, opacity: 0, boxShadow: '0 0 0px #06B6D4' }}
-          animate={phase >= 3 ? { scaleX: 1, opacity: 1, boxShadow: '0 0 20px #06B6D4' } : {}}
-          transition={{ duration: 0.8, ease: 'circOut' }}
-          style={{ transformOrigin: 'left' }}
+          className="h-[1px] bg-[#F59E0B] shadow-[0_0_10px_rgba(245,158,11,0.3)] mt-[3vw]"
+          initial={{ width: 0, opacity: 0 }}
+          animate={phase >= 4 ? { width: '30vw', opacity: 1 } : { width: 0, opacity: 0 }}
+          transition={{ duration: 1, ease: 'easeInOut' }}
         />
 
+        {/* Tagline */}
         <motion.p
-          className="mt-8 text-[2.2vw] text-[#F8FAFC] opacity-90 max-w-[50vw] leading-relaxed font-sans"
+          className="mt-[3vw] text-[2.5vw] text-[#FAF5FF] opacity-90 max-w-[50vw] leading-tight font-sans font-light"
           initial={{ opacity: 0, y: 20 }}
-          animate={phase >= 4 ? { opacity: 1, y: 0 } : {}}
+          animate={phase >= 5 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 1, ease: 'easeOut' }}
         >
           We build the AI software that grows your business.
