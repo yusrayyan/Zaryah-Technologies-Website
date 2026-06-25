@@ -7,70 +7,76 @@ import { Scene4 } from './video_scenes/Scene4';
 import { Scene5 } from './video_scenes/Scene5';
 
 const SCENE_DURATIONS = {
-  intro: 8000,
-  services: 8000,
-  stats: 8000,
-  trust: 8000,
-  outro: 8000
+  intro: 5000,
+  services: 6000,
+  stats: 6000,
+  credentials: 5000,
+  outro: 6000
 };
-
-const scenePos = [
-  { x: '10vw', y: '10vh', scale: 2, opacity: 0.8 },
-  { x: '60vw', y: '60vh', scale: 1.2, opacity: 0.5 },
-  { x: '80vw', y: '20vh', scale: 1.5, opacity: 0.7 },
-  { x: '20vw', y: '70vh', scale: 0.8, opacity: 0.4 },
-  { x: '50vw', y: '50vh', scale: 3, opacity: 0.9 },
-];
 
 export default function VideoTemplate() {
   const { currentScene } = useVideoPlayer({ durations: SCENE_DURATIONS });
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-[#F5F7FB] text-[#111827]">
-      {/* Persistent background layer */}
+    <div className="relative w-full h-screen overflow-hidden bg-[#0A0F1A] text-white">
+      
+      {/* Background grid / scanline layer */}
+      <div 
+        className="absolute inset-0 z-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(37, 99, 235, 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(37, 99, 235, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '4vw 4vw'
+        }}
+      />
+
+      <div className="absolute inset-0 z-0 pointer-events-none mix-blend-screen opacity-10 bg-repeat bg-center" style={{ backgroundImage: `url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E')` }} />
+
       <div className="absolute inset-0 z-0">
         <motion.div
-          className="absolute w-[800px] h-[800px] rounded-full opacity-10 blur-3xl"
-          style={{ background: 'radial-gradient(circle, #2563EB, transparent)' }}
+          className="absolute w-[80vw] h-[80vw] rounded-full opacity-20 blur-[100px]"
+          style={{ background: 'radial-gradient(circle, #2563EB, transparent 70%)' }}
           animate={{
             x: ['-20%', '50%', '10%'],
             y: ['0%', '40%', '20%'],
             scale: [1, 1.2, 0.9]
           }}
-          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
         />
         <motion.div
-          className="absolute w-[600px] h-[600px] rounded-full opacity-10 blur-3xl right-0 bottom-0"
-          style={{ background: 'radial-gradient(circle, #3B82F6, transparent)' }}
+          className="absolute w-[60vw] h-[60vw] rounded-full opacity-10 blur-[100px] right-0 bottom-0"
+          style={{ background: 'radial-gradient(circle, #06B6D4, transparent 70%)' }}
           animate={{
             x: ['20%', '-30%', '5%'],
             y: ['-10%', '-50%', '-20%']
           }}
-          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
         />
       </div>
 
-      {/* Persistent midground layer */}
-      <motion.div
-        className="absolute w-64 h-64 rounded-full bg-[#2563EB]/10 blur-2xl z-0"
-        animate={scenePos[currentScene]}
-        transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-      />
-      
-      <motion.div
-        className="absolute h-[2px] bg-[#2563EB]/20 z-0"
-        animate={{
-          left: ['10%', '0%', '40%', '20%', '30%'][currentScene],
-          width: ['80%', '100%', '30%', '70%', '40%'][currentScene],
-          top: ['80%', '20%', '90%', '10%', '50%'][currentScene],
-          opacity: currentScene >= 4 ? 0 : 1,
-        }}
-        transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-      />
+      {/* Persistent horizontal rule lines */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <motion.div 
+          className="absolute h-[1px] bg-[#2563EB]/40 left-0 right-0 top-[15vh]"
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 1.5, ease: "circOut" }}
+          style={{ transformOrigin: "left" }}
+        />
+        <motion.div 
+          className="absolute h-[1px] bg-[#2563EB]/40 left-0 right-0 bottom-[15vh]"
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 1.5, delay: 0.2, ease: "circOut" }}
+          style={{ transformOrigin: "right" }}
+        />
+      </div>
 
       {/* Scene specific foreground */}
       <div className="relative z-10 w-full h-full">
-        <AnimatePresence mode="popLayout">
+        <AnimatePresence mode="sync">
           {currentScene === 0 && <Scene1 key="intro" />}
           {currentScene === 1 && <Scene2 key="services" />}
           {currentScene === 2 && <Scene3 key="stats" />}

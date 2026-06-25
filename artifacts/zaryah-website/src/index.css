@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,300;1,9..40,400&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -57,50 +57,49 @@
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .06);
 
-  /* Zaryah light palette — white background, electric blue accent */
-  --background: 220 20% 98%;
-  --foreground: 220 25% 10%;
+  /* Zaryah dark palette */
+  --background: 222 44% 7%;
+  --foreground: 210 40% 98%;
 
-  --border: 220 15% 88%;
-  --input: 220 15% 88%;
-  --ring: 220 90% 50%;
+  --border: 217 33% 17%;
+  --input: 217 33% 17%;
+  --ring: 224 76% 48%;
 
-  --card: 0 0% 100%;
-  --card-foreground: 220 25% 10%;
-  --card-border: 220 15% 88%;
+  --card: 222 47% 11%;
+  --card-foreground: 210 40% 98%;
+  --card-border: 217 33% 17%;
 
-  --sidebar: 220 20% 98%;
-  --sidebar-foreground: 220 25% 10%;
-  --sidebar-border: 220 15% 88%;
-  --sidebar-primary: 220 90% 50%;
+  --sidebar: 222 44% 7%;
+  --sidebar-foreground: 210 40% 98%;
+  --sidebar-border: 217 33% 17%;
+  --sidebar-primary: 224 76% 48%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 220 15% 93%;
-  --sidebar-accent-foreground: 220 25% 10%;
-  --sidebar-ring: 220 90% 50%;
+  --sidebar-accent: 217 33% 17%;
+  --sidebar-accent-foreground: 210 40% 98%;
+  --sidebar-ring: 224 76% 48%;
 
-  --popover: 0 0% 100%;
-  --popover-foreground: 220 25% 10%;
-  --popover-border: 220 15% 88%;
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 40% 98%;
+  --popover-border: 217 33% 17%;
 
-  /* Primary: electric blue — slightly deepened for contrast on light bg */
-  --primary: 220 90% 50%;
+  --primary: 221 83% 53%;
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 220 15% 93%;
-  --secondary-foreground: 220 25% 10%;
+  --secondary: 217 33% 17%;
+  --secondary-foreground: 210 40% 98%;
 
-  --muted: 220 15% 93%;
-  --muted-foreground: 220 10% 45%;
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%;
 
-  --accent: 220 15% 93%;
-  --accent-foreground: 220 25% 10%;
+  --accent: 217 33% 17%;
+  --accent-foreground: 210 40% 98%;
 
-  --destructive: 0 72% 51%;
-  --destructive-foreground: 0 0% 100%;
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 210 40% 98%;
 
-  --app-font-sans: 'DM Sans', sans-serif;
+  --app-font-sans: 'Space Grotesk', sans-serif;
+  --app-font-mono: 'JetBrains Mono', monospace;
   --app-font-serif: Georgia, serif;
-  --app-font-mono: Menlo, monospace;
   --radius: 0.5rem;
 }
 
