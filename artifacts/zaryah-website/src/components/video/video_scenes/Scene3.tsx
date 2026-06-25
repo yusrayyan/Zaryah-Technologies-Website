@@ -1,85 +1,100 @@
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+
+// A simple count up effect
+function CountUp({ end, suffix = "", duration = 2, startDelay = 0, trigger = false }: { end: number, suffix?: string, duration?: number, startDelay?: number, trigger: boolean }) {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!trigger) return;
+    let startTime: number;
+    let animationFrame: number;
+
+    const tick = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = (timestamp - startTime) / (duration * 1000);
+
+      if (progress < 1) {
+        setValue(Math.floor(end * progress));
+        animationFrame = requestAnimationFrame(tick);
+      } else {
+        setValue(end);
+      }
+    };
+
+    const timeout = setTimeout(() => {
+      animationFrame = requestAnimationFrame(tick);
+    }, startDelay * 1000);
+
+    return () => {
+      clearTimeout(timeout);
+      cancelAnimationFrame(animationFrame);
+    };
+  }, [end, duration, startDelay, trigger]);
+
+  return <span>{value}{suffix}</span>;
+}
 
 export function Scene3() {
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setPhase(1), 300),
-      setTimeout(() => setPhase(2), 800),
-      setTimeout(() => setPhase(3), 1300),
-      setTimeout(() => setPhase(4), 1800),
-      setTimeout(() => setPhase(5), 4500),
+      setTimeout(() => setPhase(1), 500),
+      setTimeout(() => setPhase(2), 1000), // stats start
     ];
     return () => timers.forEach(t => clearTimeout(t));
   }, []);
 
   const stats = [
-    { value: "5+", label: "YEARS EXP", prefix: ">_" },
-    { value: "35+", label: "ENGINEERS", prefix: ">_" },
-    { value: "30K+", label: "ACTIVE USERS", prefix: ">_" },
-    { value: "8×", label: "COST EFFICIENT", prefix: ">_" }
+    { value: 5, suffix: "+", label: "YEARS EXP" },
+    { value: 35, suffix: "+", label: "ENGINEERS" },
+    { value: 30, suffix: "K+", label: "ACTIVE USERS" },
+    { value: 8, suffix: "×", label: "COST EFFICIENT" }
   ];
 
   return (
     <motion.div 
-      className="absolute inset-0 flex flex-col justify-center px-[10vw]"
-      initial={{ scale: 1.1, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      exit={{ scale: 0.9, opacity: 0, filter: 'blur(10px)' }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="absolute inset-0 flex flex-col justify-center items-center px-[5vw]"
+      initial={{ clipPath: 'circle(0% at 50% 50%)' }}
+      animate={{ clipPath: 'circle(150% at 50% 50%)' }}
+      exit={{ opacity: 0, scale: 1.1 }}
+      transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
     >
-      <div className="absolute right-[10vw] top-[20vh] text-right">
-        <motion.p 
-          className="text-[1.2vw] font-mono text-[#06B6D4] tracking-[0.2em]"
-          initial={{ opacity: 0, x: 20 }}
-          animate={phase >= 1 ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-          transition={{ duration: 0.6 }}
-        >
-          SYS.METRICS_
-        </motion.p>
-      </div>
-
-      <div className="grid grid-cols-2 gap-y-16 gap-x-12 w-[70vw]">
+      <div className="flex justify-between items-center w-full max-w-[80vw]">
         {stats.map((stat, idx) => (
-          <div key={idx} className="flex flex-col relative">
+          <div key={idx} className="flex flex-col items-center relative flex-1">
             <motion.div
-              className="absolute -left-6 top-4 text-[#2563EB] font-mono text-[2vw]"
+              className="text-[6vw] font-mono font-bold text-[#06B6D4]"
+              style={{ textShadow: '0 0 20px rgba(6, 182, 212, 0.5)' }}
               initial={{ opacity: 0 }}
-              animate={phase > idx ? { opacity: 0.5 } : { opacity: 0 }}
-              transition={{ duration: 0.4 }}
+              animate={phase >= 2 ? {
+                opacity: [0, 1, 0, 1, 0.5, 1],
+              } : {}}
+              transition={{ duration: 0.3, delay: phase >= 2 ? idx * 0.2 : 0 }}
             >
-              {stat.prefix}
+              {phase >= 2 ? (
+                <CountUp end={stat.value} suffix={stat.suffix} duration={1.5} startDelay={idx * 0.2 + 0.3} trigger={phase >= 2} />
+              ) : "0"}
             </motion.div>
             
-            <div className="overflow-hidden">
-              <motion.div
-                className="text-[6vw] font-mono font-bold text-white leading-none tracking-tighter"
-                initial={{ y: "100%", opacity: 0 }}
-                animate={phase > idx ? { y: "0%", opacity: 1 } : { y: "100%", opacity: 0 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              >
-                {stat.value}
-              </motion.div>
-            </div>
-            
             <motion.div
-              className="h-[1px] bg-[#2563EB]/40 my-3"
-              initial={{ scaleX: 0 }}
-              animate={phase > idx ? { scaleX: 1 } : { scaleX: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "circOut" }}
-              style={{ transformOrigin: "left" }}
-            />
-            
-            <motion.div
-              className="text-[1.2vw] font-sans font-medium tracking-widest text-[#94A3B8]"
-              initial={{ opacity: 0, x: -10 }}
-              animate={phase > idx ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-[1.2vw] font-sans font-medium tracking-widest text-[#F8FAFC] mt-4 uppercase"
+              initial={{ opacity: 0, y: 20 }}
+              animate={phase >= 2 ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: phase >= 2 ? idx * 0.2 + 0.5 : 0 }}
             >
               {stat.label}
             </motion.div>
+
+            {idx < stats.length - 1 && (
+              <motion.div
+                className="absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-[8vw] bg-[#1E293B]"
+                initial={{ scaleY: 0 }}
+                animate={phase >= 1 ? { scaleY: 1 } : {}}
+                transition={{ duration: 0.5, delay: phase >= 1 ? 0.3 + idx * 0.1 : 0 }}
+              />
+            )}
           </div>
         ))}
       </div>

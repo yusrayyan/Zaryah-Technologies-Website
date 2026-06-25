@@ -1,82 +1,71 @@
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 export function Scene5() {
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setPhase(1), 500),
-      setTimeout(() => setPhase(2), 1200),
-      setTimeout(() => setPhase(3), 2000),
+      setTimeout(() => setPhase(1), 800),
+      setTimeout(() => setPhase(2), 2000),
+      setTimeout(() => setPhase(3), 3500),
     ];
     return () => timers.forEach(t => clearTimeout(t));
   }, []);
 
+  const emailText = "info@zaryahtech.com";
+
   return (
     <motion.div 
-      className="absolute inset-0 flex flex-col justify-center px-[10vw] bg-[#0A0F1A]"
-      initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
-      animate={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}
+      className="absolute inset-0 flex flex-col justify-center items-center bg-[#2563EB]"
+      initial={{ clipPath: 'inset(100% 0 0 0)' }}
+      animate={{ clipPath: 'inset(0% 0 0 0)' }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
+      transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
     >
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#2563EB] to-transparent opacity-50" />
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#2563EB] to-transparent opacity-50" />
+      {/* Two glowing orbs */}
+      <motion.div
+        className="absolute w-[40vw] h-[40vw] rounded-full blur-[80px] bg-white opacity-20 left-[10vw]"
+        animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.3, 0.1] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="absolute w-[40vw] h-[40vw] rounded-full blur-[80px] bg-[#06B6D4] opacity-30 right-[10vw]"
+        animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.1, 0.3] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+      />
 
-      <div className="flex flex-col items-center text-center">
-        <motion.div 
-          className="w-16 h-16 mb-8 relative"
-          initial={{ scale: 0, rotate: -90 }}
-          animate={phase >= 1 ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -90 }}
-          transition={{ type: "spring", stiffness: 200, damping: 20 }}
-        >
-          <div className="absolute inset-0 border-2 border-[#2563EB] rotate-45" />
-          <div className="absolute inset-2 border-2 border-[#06B6D4]" />
-          <div className="absolute inset-0 bg-[#2563EB]/20 blur-md" />
-        </motion.div>
+      <motion.h1
+        className="text-[7vw] font-bold text-white tracking-tighter text-shadow-lg z-10"
+        style={{ textShadow: '0 0 40px rgba(255,255,255,0.5)' }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={phase >= 1 ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 1, ease: 'easeOut' }}
+      >
+        ZARYAH TECHNOLOGIES
+      </motion.h1>
 
-        <div className="overflow-hidden">
-          <motion.h1 
-            className="text-[6vw] font-black font-sans tracking-tighter text-white mb-2 leading-none"
-            initial={{ y: "100%" }}
-            animate={phase >= 1 ? { y: "0%" } : { y: "100%" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      <div className="h-[3vw] mt-6 font-mono text-[2vw] text-white z-10">
+        {emailText.split("").map((char, i) => (
+          <motion.span
+            key={i}
+            initial={{ opacity: 0 }}
+            animate={phase >= 2 ? { opacity: 1 } : {}}
+            transition={{ duration: 0.05, delay: phase >= 2 ? i * 0.05 : 0 }}
           >
-            ZARYAH
-          </motion.h1>
-        </div>
-
-        <div className="overflow-hidden mb-12">
-          <motion.div 
-            className="text-[2vw] font-mono tracking-[0.5em] text-[#2563EB]"
-            initial={{ y: "-100%" }}
-            animate={phase >= 1 ? { y: "0%" } : { y: "-100%" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-          >
-            TECHNOLOGIES
-          </motion.div>
-        </div>
-        
-        <motion.div
-          className="px-8 py-4 border border-[#2563EB]/50 bg-[#2563EB]/10 backdrop-blur-md relative group"
-          initial={{ opacity: 0, y: 20 }}
-          animate={phase >= 2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <div className="absolute -left-[1px] top-1/4 bottom-1/4 w-[2px] bg-[#06B6D4] shadow-[0_0_10px_#06B6D4]" />
-          <div className="absolute -right-[1px] top-1/4 bottom-1/4 w-[2px] bg-[#06B6D4] shadow-[0_0_10px_#06B6D4]" />
-          <span className="font-mono text-[#06B6D4] mr-4 text-[1.2vw]">&gt;</span>
-          <span className="text-[1.8vw] font-mono text-white tracking-widest">
-            info@zaryahtech.com
-          </span>
-          <motion.span 
-            className="inline-block w-3 h-5 bg-[#06B6D4] ml-2 align-middle"
-            animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 1, repeat: Infinity, ease: "steps(2)" }}
-          />
-        </motion.div>
+            {char}
+          </motion.span>
+        ))}
       </div>
+
+      <motion.div
+        className="mt-12 text-[1.2vw] font-sans font-medium tracking-[0.2em] text-white/80 uppercase z-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={phase >= 3 ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8 }}
+      >
+        India · UAE · Global
+      </motion.div>
     </motion.div>
   );
 }
