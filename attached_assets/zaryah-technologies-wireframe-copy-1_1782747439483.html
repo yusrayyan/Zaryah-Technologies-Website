@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zaryah Technologies — Wireframe + Copy (Handoff)</title>
+<style>
+  :root{
+    --desk:#e7e7e4; --canvas:#ffffff; --ink:#26261f; --muted:#6f6f68;
+    --line:#bcbcb6; --line-strong:#8f8f88; --fill:#e3e3df; --fill-2:#d6d6d1;
+    --note:#b06f12; --note-bg:#fbf2e1; --note-line:#e3b870;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--desk);color:var(--ink);font-family:var(--sans);line-height:1.5;padding:32px 20px 80px;}
+  .wrap{max-width:1080px;margin:0 auto;}
+
+  .doc-head{margin-bottom:28px;}
+  .doc-head h1{font-size:24px;margin:0 0 6px;letter-spacing:-.01em;}
+  .doc-head .sub{color:var(--muted);font-size:14px;margin:0;}
+  .doc-meta{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px;text-transform:uppercase;letter-spacing:.06em;}
+
+  .legend{background:var(--canvas);border:1px solid var(--line);padding:14px 18px;margin:0 0 30px;font-size:12.5px;display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;}
+  .legend strong{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;}
+  .swatch{display:inline-flex;align-items:center;gap:7px;color:var(--muted);}
+  .chip{width:24px;height:14px;border:1px solid var(--line-strong);display:inline-block;}
+  .chip.img{background:repeating-linear-gradient(45deg,#ededea,#ededea 5px,#dcdcd7 5px,#dcdcd7 10px);}
+  .chip.note{background:var(--note-bg);border-color:var(--note-line);}
+  .chip.copy{background:#fff;}
+
+  .frame{background:var(--canvas);border:1px solid var(--line-strong);margin-bottom:22px;}
+  .frame > .bar{display:flex;align-items:baseline;gap:12px;padding:9px 14px;border-bottom:1px solid var(--line);background:#f3f3ef;}
+  .bar .num{font-family:var(--mono);font-size:12px;color:var(--note);font-weight:700;}
+  .bar .name{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;}
+  .bar .purpose{font-size:12px;color:var(--muted);margin-left:auto;text-align:right;}
+  .canvas-pad{padding:18px 20px 4px;}
+
+  /* copy styles — intentionally plain (wireframe, not design) */
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;}
+  .h1{font-size:30px;line-height:1.15;font-weight:800;margin:0 0 10px;letter-spacing:-.015em;}
+  .h2{font-size:22px;line-height:1.2;font-weight:700;margin:0 0 8px;letter-spacing:-.01em;}
+  .h3{font-size:15px;font-weight:700;margin:0 0 4px;}
+  .body{font-size:14.5px;color:#3f3f37;margin:0 0 10px;max-width:62ch;}
+  .small{font-size:13px;color:var(--muted);}
+  .stat-num{font-size:30px;font-weight:800;letter-spacing:-.01em;line-height:1;}
+  .stat-lbl{font-size:12.5px;color:var(--muted);margin-top:6px;}
+  .quote{font-style:italic;color:#3f3f37;font-size:15px;border-left:3px solid var(--line-strong);padding-left:14px;margin:14px 0 4px;}
+
+  .img{background:repeating-linear-gradient(45deg,#ededea,#ededea 6px,#dcdcd7 6px,#dcdcd7 12px);border:1px dashed var(--line-strong);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:8px;}
+  .btn{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;padding:9px 16px;border:1px solid var(--ink);border-radius:3px;background:#fff;}
+  .btn.solid{background:var(--ink);color:#fff;}
+  .pill{display:inline-block;font-family:var(--mono);font-size:10.5px;padding:5px 10px;border:1px solid var(--line-strong);border-radius:999px;color:var(--muted);}
+  .field{border:1px solid var(--line);background:#fafaf8;border-radius:3px;padding:9px 11px;font-size:12.5px;color:var(--muted);font-family:var(--mono);}
+
+  .row{display:flex;gap:16px;}
+  .row.wrap{flex-wrap:wrap;}
+  .col{flex:1;min-width:0;}
+  .card{border:1px solid var(--line);background:#fafaf8;padding:15px;}
+  .stack > *+*{margin-top:8px;}
+  .icon{width:34px;height:34px;border-radius:50%;background:var(--fill);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--muted);}
+
+  .note{background:var(--note-bg);border-left:3px solid var(--note-line);padding:10px 14px;margin:14px 18px 18px;font-size:12.5px;color:#5c4413;}
+  .note b{color:var(--note);}
+
+  .sitemap{display:flex;flex-direction:column;align-items:center;}
+  .sm-node{border:1px solid var(--line-strong);background:#fafaf8;padding:8px 16px;font-family:var(--mono);font-size:12px;font-weight:700;}
+  .sm-connector{width:1px;height:18px;background:var(--line-strong);}
+  .sm-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+  .sm-leaf{border:1px solid var(--line);background:#fff;padding:8px 12px;font-family:var(--mono);font-size:11px;text-align:center;min-width:120px;}
+  .sm-leaf .kids{font-size:10px;color:var(--muted);font-weight:400;margin-top:5px;line-height:1.5;text-transform:none;}
+
+  table.cmp{width:100%;border-collapse:collapse;font-size:13.5px;}
+  table.cmp th,table.cmp td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top;}
+  table.cmp th{background:#f3f3ef;font-size:11px;font-family:var(--mono);letter-spacing:.04em;text-transform:uppercase;}
+  table.cmp td.z{color:var(--ink);font-weight:600;}
+
+  .foot-note{font-size:12.5px;color:var(--muted);margin-top:30px;border-top:1px solid var(--line);padding-top:16px;line-height:1.7;}
+
+  @media (max-width:720px){.row{flex-direction:column;} .bar .purpose{display:none;} .h1{font-size:24px;}}
+  @media print{body{background:#fff;padding:0;} .frame{break-inside:avoid;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="doc-head">
+    <h1>Zaryah Technologies — Wireframe + Copy</h1>
+    <p class="sub">Homepage structure with final copy written in. Words are ready to use; layout is intent only — visual design, type, and colour are the designer's call.</p>
+    <p class="doc-meta">v2 · Homepage · copy populated · corrected stats applied</p>
+  </div>
+
+  <div class="legend">
+    <strong>Legend</strong>
+    <span class="swatch"><span class="chip copy"></span> Real copy (ready to use)</span>
+    <span class="swatch"><span class="chip img"></span> Image / media placeholder</span>
+    <span class="swatch"><span class="chip note"></span> Designer / dev note</span>
+  </div>
+
+  <!-- SITEMAP -->
+  <div class="frame">
+    <div class="bar"><span class="num">00</span><span class="name">Sitemap</span><span class="purpose">Pages & nesting</span></div>
+    <div class="canvas-pad" style="padding-bottom:18px;">
+      <div class="sitemap">
+        <div class="sm-node">HOME</div>
+        <div class="sm-connector"></div>
+        <div class="sm-row">
+          <div class="sm-leaf">SERVICES<div class="kids">Custom AI · Agentic AI · AI Agents · Resource Placement</div></div>
+          <div class="sm-leaf">HOW WE WORK<div class="kids">Process · Engagement models</div></div>
+          <div class="sm-leaf">WORK<div class="kids">Case studies</div></div>
+          <div class="sm-leaf">ABOUT<div class="kids">Studio · Founder · Advisors</div></div>
+          <div class="sm-leaf">CONTACT<div class="kids">Book consult</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 HEADER -->
+  <div class="frame">
+    <div class="bar"><span class="num">01</span><span class="name">Global header (sticky)</span><span class="purpose">Orient + persistent CTA</span></div>
+    <div class="canvas-pad">
+      <div class="row" style="align-items:center;border:1px solid var(--line);padding:12px 14px;background:#fafaf8;">
+        <div style="font-weight:800;font-size:15px;">Zaryah Technologies</div>
+        <div class="row" style="flex:1;justify-content:center;gap:22px;">
+          <span class="small">Services</span><span class="small">How we work</span><span class="small">Work</span><span class="small">About</span>
+        </div>
+        <span class="btn solid">Book a free consult</span>
+      </div>
+    </div>
+    <div class="note"><b>Behaviour:</b> sticky, condenses on scroll. <b>Mobile:</b> logo + hamburger; CTA stays visible.</div>
+  </div>
+
+  <!-- 02 HERO -->
+  <div class="frame">
+    <div class="bar"><span class="num">02</span><span class="name">Hero</span><span class="purpose">The thesis</span></div>
+    <div class="canvas-pad">
+      <div class="row">
+        <div class="col" style="flex:1.3;">
+          <p class="eyebrow">AI software studio · India · UAE · Global</p>
+          <h2 class="h1">We build the AI software that builds your business.</h2>
+          <p class="body">Custom software, agentic AI, drop-in AI agents, and embedded engineers — production-grade, shipped in weeks. You bring the problem; we bring the team that's spent five years putting AI into production.</p>
+          <div style="display:flex;gap:12px;margin:6px 0 16px;">
+            <span class="btn solid">Book a free consult</span><span class="btn">See our work</span>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="pill">IIT-incubated</span><span class="pill">Forbes Business Council</span><span class="pill">40+ awards</span>
+          </div>
+        </div>
+        <div class="col img" style="flex:1;min-height:210px;">HERO VISUAL<br>(product UI / system diagram / short loop)</div>
+      </div>
+    </div>
+    <div class="note"><b>Mobile:</b> single column, visual below the CTAs. Don't default to a giant number — the headline + a credible visual carry it.</div>
+  </div>
+
+  <!-- 03 THE MOMENT -->
+  <div class="frame">
+    <div class="bar"><span class="num">03</span><span class="name">The moment</span><span class="purpose">Why now</span></div>
+    <div class="canvas-pad">
+      <h3 class="h2">Every business is becoming an AI business. The only question is who you trust to build it.</h3>
+      <p class="body">The companies pulling ahead aren't the ones with the flashiest demo — they're the ones who got AI into production and kept it there. Most never make it past the pilot. We close that gap.</p>
+      <div class="row wrap" style="margin-top:8px;">
+        <div class="col card"><div class="stat-num">88%</div><div class="stat-lbl">of enterprises now use AI in at least one function — but most are still stuck in pilots, not production.</div></div>
+        <div class="col card"><div class="stat-num">$4.4T</div><div class="stat-lbl">in annual value generative AI is forecast to unlock across the global economy.</div></div>
+        <div class="col card"><div class="stat-num">10×</div><div class="stat-lbl">faster shipping when agentic workflows replace manual, hand-built ones.</div></div>
+      </div>
+    </div>
+    <div class="note"><b>Stats corrected from the deck audit</b> — the "88% / stuck in pilots" framing is stronger because the gap is exactly what you sell. Keep "$4.4T" labelled as generative AI specifically.</div>
+  </div>
+
+  <!-- 04 SERVICES -->
+  <div class="frame">
+    <div class="bar"><span class="num">04</span><span class="name">What we build</span><span class="purpose">The 4 offerings</span></div>
+    <div class="canvas-pad">
+      <h3 class="h2">Four ways we plug in.</h3>
+      <p class="body">Pick one. Mix and match. Start with a proof-of-concept and scale to a full team — your call.</p>
+      <div class="row wrap">
+        <div class="col card stack" style="min-width:230px;">
+          <div class="icon">01</div><h4 class="h3">Custom AI Software</h4>
+          <p class="small">Spec to ship. Full-stack web and mobile, backends, ML pipelines — end-to-end product engineering with AI woven in.</p>
+          <span class="pill" style="border:none;color:var(--note);padding-left:0;">Learn more →</span>
+        </div>
+        <div class="col card stack" style="min-width:230px;">
+          <div class="icon">02</div><h4 class="h3">Agentic AI Development</h4>
+          <p class="small">Systems that don't just answer — they plan, decide, and act. Autonomous multi-step workflows, with humans in the loop where it matters.</p>
+          <span class="pill" style="border:none;color:var(--note);padding-left:0;">Learn more →</span>
+        </div>
+      </div>
+      <div class="row wrap" style="margin-top:14px;">
+        <div class="col card stack" style="min-width:230px;">
+          <div class="icon">03</div><h4 class="h3">AI Agent Creation</h4>
+          <p class="small">Purpose-built AI workers that live inside your stack and own a workflow end-to-end — support, research, ops.</p>
+          <span class="pill" style="border:none;color:var(--note);padding-left:0;">Learn more →</span>
+        </div>
+        <div class="col card stack" style="min-width:230px;">
+          <div class="icon">04</div><h4 class="h3">Resource Placement</h4>
+          <p class="small">Senior AI engineers, ML scientists, and full-stack devs embedded on your team. Vetted, ramped in days, billed monthly.</p>
+          <span class="pill" style="border:none;color:var(--note);padding-left:0;">Learn more →</span>
+        </div>
+      </div>
+    </div>
+    <div class="note"><b>2×2 grid → single column on mobile.</b> Each card links to its own Services detail page.</div>
+  </div>
+
+  <!-- 05 PROOF BAND -->
+  <div class="frame">
+    <div class="bar"><span class="num">05</span><span class="name">Proof band</span><span class="purpose">Credibility stats</span></div>
+    <div class="canvas-pad">
+      <div class="row wrap" style="background:#33352b;color:#eceee3;padding:20px;border-radius:4px;">
+        <div class="col" style="text-align:center;"><div class="stat-num">5+</div><div class="stat-lbl" style="color:#b9bda9;">Years in production AI</div></div>
+        <div class="col" style="text-align:center;"><div class="stat-num">35+</div><div class="stat-lbl" style="color:#b9bda9;">Specialist engineers</div></div>
+        <div class="col" style="text-align:center;"><div class="stat-num">30K+</div><div class="stat-lbl" style="color:#b9bda9;">Active users on shipped platforms</div></div>
+        <div class="col" style="text-align:center;"><div class="stat-num">~6×</div><div class="stat-lbl" style="color:#b9bda9;">More cost-efficient than US/EU shops</div></div>
+      </div>
+    </div>
+    <div class="note"><b>Lock these four numbers</b> and reuse them identically everywhere. Confirm the cost multiple (deck says 3× / 6× / 8× in different places — pick one; the pricing table supports ~6×).</div>
+  </div>
+
+  <!-- 06 PROCESS -->
+  <div class="frame">
+    <div class="bar"><span class="num">06</span><span class="name">How we work</span><span class="purpose">De-risk the engagement</span></div>
+    <div class="canvas-pad">
+      <h3 class="h2">From kickoff to production in weeks, not quarters.</h3>
+      <p class="body">An agile, lean delivery loop. We ship something real every two weeks and iterate with you in the room.</p>
+      <div class="row wrap" style="margin-top:6px;">
+        <div class="col stack" style="min-width:150px;"><div class="icon">1</div><div class="eyebrow" style="margin:0;">Week 0</div><h4 class="h3">Discovery</h4><p class="small">Free consult. We map the problem and define what success looks like.</p></div>
+        <div class="col stack" style="min-width:150px;"><div class="icon">2</div><div class="eyebrow" style="margin:0;">Week 1–2</div><h4 class="h3">POC</h4><p class="small">A working prototype on your real data, in front of real users.</p></div>
+        <div class="col stack" style="min-width:150px;"><div class="icon">3</div><div class="eyebrow" style="margin:0;">Week 3–6</div><h4 class="h3">Build</h4><p class="small">Production engineering, with daily standups in your timezone.</p></div>
+        <div class="col stack" style="min-width:150px;"><div class="icon">4</div><div class="eyebrow" style="margin:0;">Week 7–8</div><h4 class="h3">Deploy</h4><p class="small">Cloud setup, CI/CD, observability, and a clean handoff.</p></div>
+        <div class="col stack" style="min-width:150px;"><div class="icon">5</div><div class="eyebrow" style="margin:0;">Ongoing</div><h4 class="h3">Scale & support</h4><p class="small">We monitor, optimize, and extend. We stay close.</p></div>
+      </div>
+      <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+        <span class="pill">✓ Daily syncs in your timezone</span><span class="pill">✓ Code in your repo from day one</span><span class="pill">✓ No lock-in — your IP</span>
+      </div>
+    </div>
+    <div class="note"><b>Mobile:</b> horizontal timeline collapses to vertical.</div>
+  </div>
+
+  <!-- 07 THE MATH -->
+  <div class="frame">
+    <div class="bar"><span class="num">07</span><span class="name">The math</span><span class="purpose">Price advantage, concrete</span></div>
+    <div class="canvas-pad">
+      <h3 class="h2">World-class output, at a fraction of the bill.</h3>
+      <p class="body">Same caliber engineers. Same compliance posture. A different cost structure — and we pass it through to you.</p>
+      <table class="cmp">
+        <tr><th>What you're comparing</th><th>Typical US/EU shop</th><th>Zaryah</th></tr>
+        <tr><td>Senior AI engineer (monthly)</td><td>$22,000 – 32,000</td><td class="z">$3,500 – 5,500</td></tr>
+        <tr><td>POC delivery</td><td>8 – 14 weeks</td><td class="z">2 – 4 weeks</td></tr>
+        <tr><td>Minimum engagement</td><td>6+ months</td><td class="z">Project or month-to-month</td></tr>
+        <tr><td>Proprietary AI frameworks</td><td>Rare</td><td class="z">4 in production</td></tr>
+      </table>
+      <p class="quote">Save the runway. Spend it on something that matters — like winning the market.</p>
+    </div>
+    <div class="note"><b>Mobile:</b> each row becomes a mini-card (3-col tables break on phones). "A fraction" keeps the headline honest against the table; align with the ~6× claim above.</div>
+  </div>
+
+  <!-- 08 CASE STUDIES -->
+  <div class="frame">
+    <div class="bar"><span class="num">08</span><span class="name">Track record</span><span class="purpose">Proof at scale</span></div>
+    <div class="canvas-pad">
+      <div class="row" style="margin-bottom:14px;">
+        <div class="col" style="text-align:center;"><div class="stat-num">$20M+</div><div class="stat-lbl">Value created</div></div>
+        <div class="col" style="text-align:center;"><div class="stat-num">30K+</div><div class="stat-lbl">Active users</div></div>
+        <div class="col" style="text-align:center;"><div class="stat-num">7</div><div class="stat-lbl">Countries delivered</div></div>
+      </div>
+      <h3 class="h2">Shipped to production. At scale.</h3>
+      <p class="body">A run of products taken to production across the education-to-employment journey — consumer learning, skills, and job-matching on one side; competitive-exam, college, and corporate-hiring platforms on the other.</p>
+      <div class="row wrap" style="margin-top:6px;">
+        <div class="col card stack" style="min-width:215px;">
+          <div class="img" style="height:84px;">PRODUCT VISUAL</div>
+          <div class="eyebrow" style="margin:0;">B2C · Education</div><h4 class="h3">Adaptive learning platform</h4>
+          <p class="small">Behavioural-science learning for individual students — personalised to how each learner thinks, not just what they know, and pointed at a real outcome from day one.</p>
+        </div>
+        <div class="col card stack" style="min-width:215px;">
+          <div class="img" style="height:84px;">PRODUCT VISUAL</div>
+          <div class="eyebrow" style="margin:0;">B2C · Skills &amp; Career</div><h4 class="h3">Career &amp; skills builder</h4>
+          <p class="small">Turns coursework into job-ready capability — recommending the exact skills each person needs for the role they're aiming at.</p>
+        </div>
+        <div class="col card stack" style="min-width:215px;">
+          <div class="img" style="height:84px;">PRODUCT VISUAL</div>
+          <div class="eyebrow" style="margin:0;">B2C · Jobs &amp; Hiring</div><h4 class="h3">Job-matching for seekers</h4>
+          <p class="small">Profiles individual job-seekers on 400+ behavioural parameters and matches them to roles by who they are — not just their résumé.</p>
+        </div>
+      </div>
+      <div class="row wrap" style="margin-top:14px;">
+        <div class="col card stack" style="min-width:215px;">
+          <div class="img" style="height:84px;">PRODUCT VISUAL</div>
+          <div class="eyebrow" style="margin:0;">B2B · Competitive Exams</div><h4 class="h3">Competitive-exam prep</h4>
+          <p class="small">An institutional platform for government and civil-service aspirants — progress measured against selection, not screen time.</p>
+        </div>
+        <div class="col card stack" style="min-width:215px;">
+          <div class="img" style="height:84px;">PRODUCT VISUAL</div>
+          <div class="eyebrow" style="margin:0;">B2B · Colleges</div><h4 class="h3">College placement platform</h4>
+          <p class="small">Colleges onboard their students, and every learner is tracked against one metric: did they get placed.</p>
+        </div>
+        <div class="col card stack" style="min-width:215px;">
+          <div class="img" style="height:84px;">PRODUCT VISUAL</div>
+          <div class="eyebrow" style="margin:0;">B2B · Corporate Hiring</div><h4 class="h3">Corporate hiring marketplace</h4>
+          <p class="small">Employers get access to a pool of behaviourally-matched, job-ready candidates — hiring on fit, not keywords.</p>
+        </div>
+      </div>
+      <p class="small" style="margin-top:14px;">Beyond education — also in production: an ethical AI financial advisor (Islamic finance · MENA), a legal AI agent, maternal-care AI, supply-chain ML, and decentralized AI infrastructure.</p>
+    </div>
+    <div class="note"><b>Six products shown unnamed</b>, per your direction — descriptive titles instead of brand names. Swap each [PRODUCT VISUAL] for a real screen; each can link to its own product/case page. The line below keeps your breadth beyond education.</div>
+  </div>
+
+  <!-- 09 ENGAGEMENT -->
+  <div class="frame">
+    <div class="bar"><span class="num">09</span><span class="name">Engagement models</span><span class="purpose">Lower the barrier to start</span></div>
+    <div class="canvas-pad">
+      <h3 class="h2">Three doors. Walk through any of them.</h3>
+      <div class="row wrap" style="margin-top:6px;align-items:stretch;">
+        <div class="col card stack" style="min-width:210px;">
+          <div class="eyebrow" style="margin:0;">Try us</div><h4 class="h3">Discovery — Free</h4>
+          <p class="small">Two weeks. We scope, prototype, and show you something working. Walk away with the code if we're not a fit.</p>
+          <p class="small" style="color:var(--note);">Best for: testing the partnership</p>
+          <span class="btn">Start here</span>
+        </div>
+        <div class="col card stack" style="min-width:210px;background:#33352b;border-color:#33352b;color:#eceee3;">
+          <div class="eyebrow" style="margin:0;color:#b9bda9;">Most chosen</div><h4 class="h3" style="color:#fff;">Project Build — Fixed</h4>
+          <p class="small" style="color:#cfd3c2;">Defined scope, fixed price, fixed timeline. Production-ready handoff in 6–12 weeks.</p>
+          <p class="small" style="color:#d8b66a;">Best for: known specs, deadline pressure</p>
+          <span class="btn solid" style="background:#cfd3c2;color:#26261f;border-color:#cfd3c2;">Get a quote</span>
+        </div>
+        <div class="col card stack" style="min-width:210px;">
+          <div class="eyebrow" style="margin:0;">Scale with us</div><h4 class="h3">Embedded — Monthly</h4>
+          <p class="small">1 to 20 engineers on your roster. Pause, scale, or convert anytime. They feel like your own team.</p>
+          <p class="small" style="color:var(--note);">Best for: long-haul, evolving roadmaps</p>
+          <span class="btn">Talk to us</span>
+        </div>
+      </div>
+      <p class="small" style="margin-top:14px;">All three include: dedicated PM · daily syncs · weekly demos · your repo · your IP.</p>
+    </div>
+    <div class="note"><b>Resolve the contradiction</b> from the deck: this says Embedded is month-to-month, but the Resource Placement slide says a 3-month minimum. Pick one before final copy.</div>
+  </div>
+
+  <!-- 10 FOUNDER -->
+  <div class="frame">
+    <div class="bar"><span class="num">10</span><span class="name">Founder / studio teaser</span><span class="purpose">Authority behind the work</span></div>
+    <div class="canvas-pad">
+      <div class="row" style="align-items:center;">
+        <div class="col img" style="flex:.5;min-height:150px;">FOUNDER PORTRAIT</div>
+        <div class="col" style="flex:1.6;">
+          <h3 class="h2">Built by Jubran Siddique.</h3>
+          <p class="body">Zaryah is led by founder Jubran Siddique — a technologist building AI for real-world impact, recognized by Forbes and incubated at IIT Madras. He sets the architecture; our engineers ship it.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+            <span class="pill">TEDx · Harvard · LSE · WEF</span><span class="pill">Forbes Business Council</span>
+          </div>
+          <span class="pill" style="border:none;color:var(--note);padding-left:0;">More about the studio →</span>
+        </div>
+      </div>
+    </div>
+    <div class="note"><b>Keep it tight here</b> — full bio, advisors, and awards live on the About page. The deck's founder slide reads as a personal CV; don't paste it whole onto the homepage.</div>
+  </div>
+
+  <!-- 11 FINAL CTA -->
+  <div class="frame">
+    <div class="bar"><span class="num">11</span><span class="name">Final CTA band</span><span class="purpose">Convert</span></div>
+    <div class="canvas-pad">
+      <div style="background:#33352b;color:#eceee3;border-radius:4px;padding:24px;">
+        <div class="row">
+          <div class="col">
+            <h3 class="h2" style="color:#fff;">The first conversation is on the house.</h3>
+            <p class="body" style="color:#cfd3c2;">Bring us a problem, a sketch, or a vague hunch. We'll come back in 48 hours with a plan, a price, and a path to production.</p>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <span class="pill" style="color:#cfd3c2;border-color:#55584a;">✓ Free 60-minute architecture review</span>
+              <span class="pill" style="color:#cfd3c2;border-color:#55584a;">✓ Custom POC scope within 5 days</span>
+              <span class="pill" style="color:#cfd3c2;border-color:#55584a;">✓ Fixed quote — no hourly games</span>
+            </div>
+          </div>
+          <div class="col card" style="background:#3f4136;border-color:#55584a;">
+            <div class="stack">
+              <div class="field">Name</div>
+              <div class="field">Work email</div>
+              <div class="field">Company</div>
+              <div class="field" style="padding-bottom:34px;">What are you trying to build?</div>
+              <span class="btn solid" style="background:#cfd3c2;color:#26261f;border-color:#cfd3c2;">Send</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="note"><b>Pick one entry point</b> — short form (shown) or a calendar embed — and make the "free" offer here match the Discovery tier (deck describes the free offer two different ways). Email fallback: info@zaryahtech.com.</div>
+  </div>
+
+  <!-- 12 FOOTER -->
+  <div class="frame">
+    <div class="bar"><span class="num">12</span><span class="name">Footer</span><span class="purpose">Navigate, reassure, legal</span></div>
+    <div class="canvas-pad">
+      <div class="row wrap" style="border-top:2px solid var(--line-strong);padding-top:16px;">
+        <div class="col" style="min-width:170px;"><div style="font-weight:800;">Zaryah Technologies</div><p class="small" style="margin-top:6px;">We build the AI software that builds your business.</p></div>
+        <div class="col" style="min-width:130px;"><div class="eyebrow">Services</div><p class="small">Custom AI Software<br>Agentic AI<br>AI Agents<br>Resource Placement</p></div>
+        <div class="col" style="min-width:130px;"><div class="eyebrow">Company</div><p class="small">About<br>Work<br>Careers<br>Insights</p></div>
+        <div class="col" style="min-width:150px;"><div class="eyebrow">Contact</div><p class="small">info@zaryahtech.com<br>India · UAE · Global</p></div>
+      </div>
+      <div class="row" style="margin-top:16px;border-top:1px solid var(--line);padding-top:12px;align-items:center;">
+        <div class="col"><span class="small">© Zaryah Technologies · Privacy · Terms</span></div>
+        <div class="col" style="text-align:right;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot-note">
+    <b>Open items the copy can't resolve on its own — decide before publish:</b><br>
+    1) One consistent cost multiple (this draft uses ~6×, matching the pricing table).<br>
+    2) Final CTA = form or calendar embed.<br>
+    3) Embedded engagement: month-to-month vs 3-month minimum.<br>
+    4) Education products are shown unnamed by design — supply real product visuals/screens when ready.<br><br>
+    All copy above is ready to paste. Styling, type, spacing, motion, and the hero/case visuals are the designer's to define.
+  </div>
+
+</div>
+</body>
+</html>
