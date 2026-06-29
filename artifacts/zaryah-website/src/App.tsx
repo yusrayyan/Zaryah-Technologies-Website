@@ -2,26 +2,16 @@ import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/not-found";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import NotFound from "@/pages/not-found";
 
-// Pages
 import Home from "@/pages/Home";
-import WhoWeAre from "@/pages/WhoWeAre";
-import WhatWeBuild from "@/pages/WhatWeBuild";
-import CustomAISoftware from "@/pages/services/CustomAISoftware";
-import AgenticAI from "@/pages/services/AgenticAI";
-import AIAgents from "@/pages/services/AIAgents";
-import ResourcePlacement from "@/pages/services/ResourcePlacement";
+import Services from "@/pages/Services";
 import HowWeWork from "@/pages/HowWeWork";
-import TrackRecord from "@/pages/TrackRecord";
-import TheMath from "@/pages/TheMath";
-import Founder from "@/pages/Founder";
-import Advisors from "@/pages/Advisors";
-import GetStarted from "@/pages/GetStarted";
-
-// Video
+import Work from "@/pages/Work";
+import About from "@/pages/About";
+import Contact from "@/pages/Contact";
 import VideoTemplate from "@/components/video/VideoTemplate";
 
 const queryClient = new QueryClient();
@@ -29,32 +19,22 @@ const queryClient = new QueryClient();
 function Router() {
   return (
     <Switch>
-      {/* Standalone video route — no navbar/footer */}
       <Route path="/video">
         <div className="w-full h-screen overflow-hidden">
           <VideoTemplate />
         </div>
       </Route>
-
-      {/* All website routes */}
       <Route>
         <div className="flex flex-col min-h-screen">
           <Navbar />
-          <main className="flex-1">
+          <main className="flex-1 pt-[66px]">
             <Switch>
               <Route path="/" component={Home} />
-              <Route path="/who-we-are" component={WhoWeAre} />
-              <Route path="/what-we-build" component={WhatWeBuild} />
-              <Route path="/services/custom-ai-software" component={CustomAISoftware} />
-              <Route path="/services/agentic-ai" component={AgenticAI} />
-              <Route path="/services/ai-agents" component={AIAgents} />
-              <Route path="/services/resource-placement" component={ResourcePlacement} />
+              <Route path="/services" component={Services} />
               <Route path="/how-we-work" component={HowWeWork} />
-              <Route path="/track-record" component={TrackRecord} />
-              <Route path="/the-math" component={TheMath} />
-              <Route path="/founder" component={Founder} />
-              <Route path="/advisors" component={Advisors} />
-              <Route path="/get-started" component={GetStarted} />
+              <Route path="/work" component={Work} />
+              <Route path="/about" component={About} />
+              <Route path="/contact" component={Contact} />
               <Route component={NotFound} />
             </Switch>
           </main>
@@ -65,7 +45,7 @@ function Router() {
   );
 }
 
-function App() {
+export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -77,5 +57,3 @@ function App() {
     </QueryClientProvider>
   );
 }
-
-export default App;

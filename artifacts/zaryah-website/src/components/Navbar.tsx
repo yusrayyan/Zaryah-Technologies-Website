@@ -1,67 +1,118 @@
-import { Link } from "wouter";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
+
+const navLinks = [
+  { href: "/services", label: "Services" },
+  { href: "/how-we-work", label: "How We Work" },
+  { href: "/work", label: "Work" },
+  { href: "/about", label: "About" },
+];
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [location] = useLocation();
+
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 24);
+    window.addEventListener("scroll", fn, { passive: true });
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
+
+  useEffect(() => { setOpen(false); }, [location]);
+
+  const active = (href: string) => location === href;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="max-w-7xl mx-auto px-6 w-full flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="font-bold text-lg tracking-tight">ZARYAH TECHNOLOGIES</span>
+    <header
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        background: "rgba(255,255,255,0.96)",
+        backdropFilter: "blur(16px)",
+        borderBottom: scrolled ? "1px solid #E2E8F0" : "1px solid transparent",
+        boxShadow: scrolled ? "0 2px 20px rgba(15,23,42,0.07)" : "none",
+      }}
+    >
+      <div className="container flex items-center h-[66px] gap-8">
+        <Link href="/">
+          <span
+            className="font-bold text-[14.5px] tracking-tight cursor-pointer select-none shrink-0"
+            style={{ fontFamily: "var(--app-font-display)", color: "#0F172A", letterSpacing: "-0.01em" }}
+          >
+            ZARYAH TECHNOLOGIES
+          </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium" style={{ fontFamily: "'Outfit', sans-serif" }}>
-          <Link href="/who-we-are" className="transition-colors hover:text-primary">Who We Are</Link>
-          <div className="group relative">
-            <Link href="/what-we-build" className="transition-colors hover:text-primary">What We Build</Link>
-            <div className="absolute left-0 top-full hidden w-48 flex-col bg-popover border p-2 group-hover:flex">
-              <Link href="/services/custom-ai-software" className="block px-4 py-2 hover:bg-muted">Custom AI Software</Link>
-              <Link href="/services/agentic-ai" className="block px-4 py-2 hover:bg-muted">Agentic AI</Link>
-              <Link href="/services/ai-agents" className="block px-4 py-2 hover:bg-muted">AI Agents</Link>
-              <Link href="/services/resource-placement" className="block px-4 py-2 hover:bg-muted">Resource Placement</Link>
-            </div>
-          </div>
-          <Link href="/how-we-work" className="transition-colors hover:text-primary">How We Work</Link>
-          <Link href="/track-record" className="transition-colors hover:text-primary">Track Record</Link>
-          <Link href="/the-math" className="transition-colors hover:text-primary">The Math</Link>
-          <div className="group relative">
-            <Link href="/founder" className="transition-colors hover:text-primary">Our Founder</Link>
-            <div className="absolute right-0 top-full hidden w-44 flex-col bg-popover border p-2 group-hover:flex">
-              <Link href="/founder" className="block px-4 py-2 hover:bg-muted">Our Founder</Link>
-              <Link href="/advisors" className="block px-4 py-2 hover:bg-muted">Advisors & Board</Link>
-            </div>
-          </div>
+        <nav className="hidden md:flex items-center gap-0.5 flex-1">
+          {navLinks.map(({ href, label }) => (
+            <Link key={href} href={href}>
+              <span
+                className="px-4 py-2 rounded-md text-sm font-medium cursor-pointer transition-all duration-150 block"
+                style={{
+                  color: active(href) ? "#2563EB" : "#374151",
+                  background: active(href) ? "#EFF6FF" : "transparent",
+                  fontFamily: "var(--app-font-sans)",
+                }}
+              >
+                {label}
+              </span>
+            </Link>
+          ))}
         </nav>
 
-        <div className="hidden md:flex items-center">
-          <Link href="/get-started">
-            <Button>Get Started</Button>
+        <div className="hidden md:flex items-center ml-auto">
+          <Link href="/contact">
+            <span
+              className="inline-flex items-center px-5 py-2.5 rounded-lg text-sm font-semibold cursor-pointer transition-all duration-150 shrink-0"
+              style={{
+                background: "#2563EB",
+                color: "#fff",
+                fontFamily: "var(--app-font-sans)",
+                letterSpacing: "-0.01em",
+                boxShadow: "0 1px 6px rgba(37,99,235,0.28), inset 0 1px 0 rgba(255,255,255,0.12)",
+              }}
+            >
+              Book a free consult
+            </span>
           </Link>
         </div>
 
-        {/* Mobile Nav Toggle */}
-        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X /> : <Menu />}
+        <button
+          className="md:hidden ml-auto p-2 rounded-md transition-colors"
+          style={{ color: "#374151" }}
+          onClick={() => setOpen(!open)}
+          aria-label="Menu"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+            {open ? (
+              <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
+            ) : (
+              <><line x1="3" y1="7" x2="21" y2="7" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="17" x2="21" y2="17" /></>
+            )}
+          </svg>
         </button>
       </div>
 
-      {/* Mobile Nav Menu */}
-      {isOpen && (
-        <div className="md:hidden border-b bg-background">
-          <div className="container flex flex-col space-y-4 py-4">
-            <Link href="/who-we-are" onClick={() => setIsOpen(false)}>Who We Are</Link>
-            <Link href="/what-we-build" onClick={() => setIsOpen(false)}>What We Build</Link>
-            <Link href="/how-we-work" onClick={() => setIsOpen(false)}>How We Work</Link>
-            <Link href="/track-record" onClick={() => setIsOpen(false)}>Track Record</Link>
-            <Link href="/the-math" onClick={() => setIsOpen(false)}>The Math</Link>
-            <Link href="/founder" onClick={() => setIsOpen(false)}>Our Founder</Link>
-            <Link href="/advisors" onClick={() => setIsOpen(false)} className="pl-4 text-muted-foreground">Advisors & Board</Link>
-            <Link href="/get-started" onClick={() => setIsOpen(false)}>
-              <Button className="w-full">Get Started</Button>
+      {open && (
+        <div className="md:hidden" style={{ background: "#fff", borderTop: "1px solid #F1F5F9" }}>
+          <div className="container py-4 flex flex-col gap-1">
+            {navLinks.map(({ href, label }) => (
+              <Link key={href} href={href}>
+                <span
+                  className="block px-4 py-3 rounded-lg text-sm font-medium cursor-pointer"
+                  style={{ color: active(href) ? "#2563EB" : "#374151", background: active(href) ? "#EFF6FF" : "transparent" }}
+                >
+                  {label}
+                </span>
+              </Link>
+            ))}
+            <Link href="/contact">
+              <span
+                className="block mt-3 px-4 py-3 rounded-lg text-sm font-semibold text-center cursor-pointer"
+                style={{ background: "#2563EB", color: "#fff" }}
+              >
+                Book a free consult
+              </span>
             </Link>
           </div>
         </div>

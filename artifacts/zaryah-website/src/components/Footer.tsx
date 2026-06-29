@@ -2,44 +2,53 @@ import { Link } from "wouter";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/40 bg-muted/20">
-      <div className="container py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer style={{ background: "#060D1F", color: "#CBD5E1" }}>
+      <div className="container py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b" style={{ borderColor: "#1E3A5F" }}>
           <div className="md:col-span-2 space-y-4">
-            <h3 className="text-xl font-bold tracking-tight">ZARYAH TECHNOLOGIES</h3>
-            <p className="text-muted-foreground max-w-sm">
-              We build the AI software that grows your business.
+            <div className="font-bold text-base text-white tracking-tight" style={{ fontFamily: "var(--app-font-display)" }}>
+              ZARYAH TECHNOLOGIES
+            </div>
+            <p className="text-sm leading-relaxed max-w-xs" style={{ color: "#94A3B8" }}>
+              We build the AI software that grows your business. Custom software, agentic AI, AI agents, and embedded engineers — production-grade, shipped in weeks.
+            </p>
+            <p className="text-xs font-mono tracking-wider uppercase" style={{ color: "#475569" }}>
+              India · UAE · Global
             </p>
           </div>
-          
+
           <div className="space-y-4">
-            <h4 className="font-semibold">Navigation</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link href="/" className="hover:text-primary">Home</Link></li>
-              <li><Link href="/who-we-are" className="hover:text-primary">Who We Are</Link></li>
-              <li><Link href="/what-we-build" className="hover:text-primary">What We Build</Link></li>
-              <li><Link href="/how-we-work" className="hover:text-primary">How We Work</Link></li>
-              <li><Link href="/track-record" className="hover:text-primary">Track Record</Link></li>
-              <li><Link href="/the-math" className="hover:text-primary">The Math</Link></li>
-              <li><Link href="/founder" className="hover:text-primary">Our Founder</Link></li>
-              <li><Link href="/advisors" className="hover:text-primary">Advisors & Board</Link></li>
-              <li><Link href="/get-started" className="hover:text-primary">Get Started</Link></li>
+            <div className="text-xs font-mono tracking-widest uppercase font-semibold" style={{ color: "#2563EB" }}>Services</div>
+            <ul className="space-y-2.5 text-sm" style={{ color: "#94A3B8" }}>
+              <li><Link href="/services#custom-ai"><span className="cursor-pointer hover:text-white transition-colors">Custom AI Software</span></Link></li>
+              <li><Link href="/services#agentic"><span className="cursor-pointer hover:text-white transition-colors">Agentic AI</span></Link></li>
+              <li><Link href="/services#agents"><span className="cursor-pointer hover:text-white transition-colors">AI Agents</span></Link></li>
+              <li><Link href="/services#placement"><span className="cursor-pointer hover:text-white transition-colors">Resource Placement</span></Link></li>
             </ul>
           </div>
 
           <div className="space-y-4">
-            <h4 className="font-semibold">Contact & Global</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="mailto:info@zaryahtech.com" className="hover:text-primary">info@zaryahtech.com</a></li>
-              <li><a href="https://zaryahtech.com" className="hover:text-primary">zaryahtech.com</a></li>
-              <li className="pt-2">Locations:</li>
-              <li className="font-medium text-foreground">India &middot; UAE &middot; Global</li>
+            <div className="text-xs font-mono tracking-widest uppercase font-semibold" style={{ color: "#2563EB" }}>Company</div>
+            <ul className="space-y-2.5 text-sm" style={{ color: "#94A3B8" }}>
+              <li><Link href="/how-we-work"><span className="cursor-pointer hover:text-white transition-colors">How We Work</span></Link></li>
+              <li><Link href="/work"><span className="cursor-pointer hover:text-white transition-colors">Our Work</span></Link></li>
+              <li><Link href="/about"><span className="cursor-pointer hover:text-white transition-colors">About</span></Link></li>
+              <li><Link href="/contact"><span className="cursor-pointer hover:text-white transition-colors">Contact</span></Link></li>
             </ul>
+            <div className="pt-2 space-y-2 text-sm" style={{ color: "#94A3B8" }}>
+              <a href="mailto:info@zaryahtech.com" className="block hover:text-white transition-colors">
+                info@zaryahtech.com
+              </a>
+            </div>
           </div>
         </div>
-        
-        <div className="mt-12 pt-8 border-t text-sm text-muted-foreground flex flex-col md:flex-row justify-between items-center">
-          <p>&copy; {new Date().getFullYear()} Zaryah Technologies. All rights reserved.</p>
+
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs" style={{ color: "#475569" }}>
+          <span>© {new Date().getFullYear()} Zaryah Technologies. All rights reserved.</span>
+          <div className="flex gap-6">
+            <span className="cursor-pointer hover:text-white transition-colors">Privacy Policy</span>
+            <span className="cursor-pointer hover:text-white transition-colors">Terms of Service</span>
+          </div>
         </div>
       </div>
     </footer>
