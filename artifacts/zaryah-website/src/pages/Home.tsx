@@ -116,7 +116,7 @@ export default function Home() {
           style={{ background: "radial-gradient(circle, rgba(99,102,241,0.16) 0%, transparent 70%)", filter: "blur(50px)", animation: "orb-float-2 18s ease-in-out infinite" }} />
 
         <div className="container relative z-10 py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="max-w-3xl">
             <motion.div initial="hidden" animate="visible" variants={stagger} className="space-y-8">
               <motion.p variants={fadeUp} className="eyebrow" style={{ color: "#38BDF8" }}>
                 AI software studio · India · UAE · Global
@@ -148,11 +148,6 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
-              <div className="img-placeholder w-full rounded-2xl border" style={{ minHeight: "380px", borderColor: "#1E3A5F", background: "rgba(255,255,255,0.03)", color: "#334155" }}>
-                [ HERO VISUAL — product UI / system diagram / short loop ]
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
