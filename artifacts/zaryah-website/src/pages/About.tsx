@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { useCountUp } from "@/hooks/useCountUp";
+import founderImg from "@assets/IMG_1715_1782792991386.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -77,9 +78,12 @@ export default function About() {
             <motion.p variants={fadeUp} className="eyebrow mb-8" style={{ color: "#2563EB" }}>Founder & CEO · Zaryah Technologies</motion.p>
             <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-12 items-start mb-14">
               <motion.div variants={fadeUp}>
-                <div className="img-placeholder rounded-2xl" style={{ width: "100%", height: "340px" }}>
-                  [ FOUNDER PORTRAIT ]
-                </div>
+                <img
+                  src={founderImg}
+                  alt="Jubran Siddique — Founder & CEO"
+                  className="w-full rounded-2xl object-cover"
+                  style={{ height: "380px", objectPosition: "center top" }}
+                />
               </motion.div>
               <motion.div variants={stagger} className="space-y-5">
                 <motion.h2 variants={fadeUp} className="text-4xl font-bold"

@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { useCountUp } from "@/hooks/useCountUp";
+import { BookOpen, GraduationCap, Briefcase } from "lucide-react";
+import founderImg from "@assets/IMG_1715_1782792991386.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -58,9 +60,9 @@ const steps = [
 ];
 
 const products = [
-  { tag: "B2C · Education", title: "Adaptive learning platform", desc: "Behavioural-science learning for individual students — personalised to how each learner thinks, pointed at a real outcome." },
-  { tag: "B2B · Colleges", title: "College placement platform", desc: "Colleges onboard their students, and every learner is tracked against one metric: did they get placed." },
-  { tag: "B2B · Corporate Hiring", title: "Corporate hiring marketplace", desc: "Employers get access to a pool of behaviourally-matched, job-ready candidates — hiring on fit, not keywords." },
+  { tag: "B2C · Education", title: "Adaptive learning platform", desc: "Behavioural-science learning for individual students — personalised to how each learner thinks, pointed at a real outcome.", Icon: BookOpen },
+  { tag: "B2B · Colleges", title: "College placement platform", desc: "Colleges onboard their students, and every learner is tracked against one metric: did they get placed.", Icon: GraduationCap },
+  { tag: "B2B · Corporate Hiring", title: "Corporate hiring marketplace", desc: "Employers get access to a pool of behaviourally-matched, job-ready candidates — hiring on fit, not keywords.", Icon: Briefcase },
 ];
 
 const tiers = [
@@ -143,14 +145,6 @@ export default function Home() {
                     See our work
                   </span>
                 </Link>
-              </motion.div>
-              <motion.div variants={fadeUp} className="flex flex-wrap gap-2">
-                {["IIT-incubated", "Forbes Business Council", "40+ awards"].map((pill) => (
-                  <span key={pill} className="px-3 py-1.5 rounded-full text-xs font-mono tracking-wide border"
-                    style={{ color: "#64748B", borderColor: "#1E3A5F", background: "rgba(255,255,255,0.03)" }}>
-                    {pill}
-                  </span>
-                ))}
               </motion.div>
             </motion.div>
 
@@ -308,18 +302,17 @@ export default function Home() {
             </motion.p>
 
             <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-              {products.map((p) => (
-                <motion.div key={p.title} variants={fadeUp}
-                  className="rounded-2xl border bg-white overflow-hidden card-hover"
+              {products.map(({ tag, title, desc, Icon }) => (
+                <motion.div key={title} variants={fadeUp}
+                  className="rounded-2xl border bg-white p-6 card-hover"
                   style={{ borderColor: "#E2E8F0" }}>
-                  <div className="img-placeholder w-full" style={{ height: "180px" }}>
-                    [ PRODUCT VISUAL ]
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+                    style={{ background: "#EFF6FF" }}>
+                    <Icon size={22} style={{ color: "#2563EB" }} />
                   </div>
-                  <div className="p-6">
-                    <span className="eyebrow text-xs" style={{ color: "#64748B" }}>{p.tag}</span>
-                    <h3 className="font-bold text-base mt-2 mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>{p.title}</h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{p.desc}</p>
-                  </div>
+                  <span className="eyebrow text-xs" style={{ color: "#64748B" }}>{tag}</span>
+                  <h3 className="font-bold text-base mt-2 mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>{title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{desc}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -379,9 +372,12 @@ export default function Home() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
             <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-12 items-center max-w-3xl">
               <motion.div variants={fadeUp}>
-                <div className="img-placeholder rounded-2xl" style={{ height: "220px", width: "100%" }}>
-                  [ FOUNDER PORTRAIT ]
-                </div>
+                <img
+                  src={founderImg}
+                  alt="Jubran Siddique — Founder & CEO"
+                  className="w-full rounded-2xl object-cover"
+                  style={{ height: "260px", objectPosition: "center top" }}
+                />
               </motion.div>
               <motion.div variants={fadeUp} className="space-y-4">
                 <p className="eyebrow" style={{ color: "#2563EB" }}>Founder & CEO</p>

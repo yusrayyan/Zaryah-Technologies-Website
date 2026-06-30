@@ -2,6 +2,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import { useCountUp } from "@/hooks/useCountUp";
+import {
+  BookOpen, TrendingUp, Users, Trophy, GraduationCap,
+  Briefcase, Globe, Scale, Heart, Network,
+} from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -12,16 +16,16 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.08 } }
 const filters = ["All", "B2C", "B2B", "Education", "Islamic AI", "Legal", "Healthcare", "Infrastructure"];
 
 const projects = [
-  { tag: "B2C · Education", cats: ["B2C", "Education"], title: "Adaptive learning platform", desc: "Behavioural-science learning, personalised to each student's thinking style and outcome goal." },
-  { tag: "B2C · Skills & Career", cats: ["B2C", "Education"], title: "Career & skills builder", desc: "Coursework → job-ready capability for a specific target role, mapped to employer demand." },
-  { tag: "B2C · Jobs & Hiring", cats: ["B2C", "Education"], title: "Job-matching for seekers", desc: "Matches individuals to roles on 400+ behavioural parameters — not just keywords." },
-  { tag: "B2B · Competitive Exams", cats: ["B2B", "Education"], title: "Competitive-exam prep", desc: "Govt & civil-service exam preparation, measured directly against selection benchmarks." },
-  { tag: "B2B · Colleges", cats: ["B2B", "Education"], title: "College placement platform", desc: "Every student tracked against one metric: did they get placed. Full lifecycle in one dashboard." },
-  { tag: "B2B · Corporate Hiring", cats: ["B2B", "Education"], title: "Corporate hiring marketplace", desc: "Employers hire behaviourally-matched, job-ready candidates — hiring on fit, not keywords." },
-  { tag: "Islamic AI · MENA", cats: ["Islamic AI"], title: "Ethical AI ecosystem", desc: "A culturally-aware, faith-conscious AI ecosystem built for the Islamic market — MENA and beyond." },
-  { tag: "LegalTech", cats: ["Legal"], title: "Legal AI agent", desc: "Document analysis, case management, and NLP-powered legal research in a single agent." },
-  { tag: "Healthcare", cats: ["Healthcare"], title: "Maternal care AI", desc: "AI-powered support system for maternal and prenatal care — personalized and culturally sensitive." },
-  { tag: "Infrastructure", cats: ["Infrastructure"], title: "Decentralized AI infrastructure", desc: "Decentralized infrastructure layer for AI workloads — distributed compute and storage." },
+  { tag: "B2C · Education", cats: ["B2C", "Education"], title: "Adaptive learning platform", desc: "Behavioural-science learning, personalised to each student's thinking style and outcome goal.", Icon: BookOpen, color: "#2563EB", bg: "#EFF6FF" },
+  { tag: "B2C · Skills & Career", cats: ["B2C", "Education"], title: "Career & skills builder", desc: "Coursework → job-ready capability for a specific target role, mapped to employer demand.", Icon: TrendingUp, color: "#0EA5E9", bg: "#F0F9FF" },
+  { tag: "B2C · Jobs & Hiring", cats: ["B2C", "Education"], title: "Job-matching for seekers", desc: "Matches individuals to roles on 400+ behavioural parameters — not just keywords.", Icon: Users, color: "#8B5CF6", bg: "#F5F3FF" },
+  { tag: "B2B · Competitive Exams", cats: ["B2B", "Education"], title: "Competitive-exam prep", desc: "Govt & civil-service exam preparation, measured directly against selection benchmarks.", Icon: Trophy, color: "#F59E0B", bg: "#FFFBEB" },
+  { tag: "B2B · Colleges", cats: ["B2B", "Education"], title: "College placement platform", desc: "Every student tracked against one metric: did they get placed. Full lifecycle in one dashboard.", Icon: GraduationCap, color: "#2563EB", bg: "#EFF6FF" },
+  { tag: "B2B · Corporate Hiring", cats: ["B2B", "Education"], title: "Corporate hiring marketplace", desc: "Employers hire behaviourally-matched, job-ready candidates — hiring on fit, not keywords.", Icon: Briefcase, color: "#0EA5E9", bg: "#F0F9FF" },
+  { tag: "Islamic AI · MENA", cats: ["Islamic AI"], title: "Ethical AI ecosystem", desc: "A culturally-aware, faith-conscious AI ecosystem built for the Islamic market — MENA and beyond.", Icon: Globe, color: "#10B981", bg: "#ECFDF5" },
+  { tag: "LegalTech", cats: ["Legal"], title: "Legal AI agent", desc: "Document analysis, case management, and NLP-powered legal research in a single agent.", Icon: Scale, color: "#6366F1", bg: "#EEF2FF" },
+  { tag: "Healthcare", cats: ["Healthcare"], title: "Maternal care AI", desc: "AI-powered support system for maternal and prenatal care — personalized and culturally sensitive.", Icon: Heart, color: "#EC4899", bg: "#FDF2F8" },
+  { tag: "Infrastructure", cats: ["Infrastructure"], title: "Decentralized AI infrastructure", desc: "Decentralized infrastructure layer for AI workloads — distributed compute and storage.", Icon: Network, color: "#64748B", bg: "#F8FAFC" },
 ];
 
 function CountStat({ target, suffix, label }: { target: number; suffix: string; label: string }) {
@@ -47,7 +51,7 @@ export default function Work() {
     <div className="flex flex-col w-full">
 
       {/* Hero */}
-      <section className="py-24" style={{ background: "#060D1F" }}>
+      <section className="relative py-24 overflow-hidden" style={{ background: "#060D1F" }}>
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{ backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "60px 60px" }}
@@ -109,17 +113,18 @@ export default function Work() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 24 }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="rounded-2xl border bg-white overflow-hidden card-hover"
+                  className="rounded-2xl border bg-white p-6 card-hover"
                   style={{ borderColor: "#E2E8F0" }}
                 >
-                  <div className="img-placeholder w-full" style={{ height: "180px" }}>
-                    [ PRODUCT VISUAL ]
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+                    style={{ background: p.bg }}
+                  >
+                    <p.Icon size={22} style={{ color: p.color }} />
                   </div>
-                  <div className="p-6">
-                    <span className="eyebrow text-xs" style={{ color: "#64748B" }}>{p.tag}</span>
-                    <h3 className="font-bold text-base mt-2 mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>{p.title}</h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{p.desc}</p>
-                  </div>
+                  <span className="eyebrow text-xs" style={{ color: "#64748B" }}>{p.tag}</span>
+                  <h3 className="font-bold text-base mt-2 mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>{p.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{p.desc}</p>
                 </motion.div>
               ))}
             </motion.div>

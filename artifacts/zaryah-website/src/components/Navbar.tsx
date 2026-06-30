@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+import zaryahMark from "@assets/af522dd8-adc7-4119-8495-83a4d391c046_1782792991386.jpeg";
 
 const navLinks = [
   { href: "/services", label: "Services" },
@@ -35,11 +36,18 @@ export function Navbar() {
     >
       <div className="container flex items-center h-[66px] gap-8">
         <Link href="/">
-          <span
-            className="font-bold text-[14.5px] tracking-tight cursor-pointer select-none shrink-0"
-            style={{ fontFamily: "var(--app-font-display)", color: "#0F172A", letterSpacing: "-0.01em" }}
-          >
-            ZARYAH TECHNOLOGIES
+          <span className="flex items-center gap-2.5 cursor-pointer select-none shrink-0">
+            <img
+              src={zaryahMark}
+              alt="Zaryah mark"
+              className="h-8 w-auto object-contain"
+            />
+            <span
+              className="font-bold text-[14.5px] tracking-tight"
+              style={{ fontFamily: "var(--app-font-display)", color: "#0F172A", letterSpacing: "-0.01em" }}
+            >
+              ZARYAH TECHNOLOGIES
+            </span>
           </span>
         </Link>
 
