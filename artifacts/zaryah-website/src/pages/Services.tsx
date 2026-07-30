@@ -12,7 +12,7 @@ const stagger = {
 
 function Section({ id, num, children }: { id: string; num: string; children: React.ReactNode }) {
   return (
-    <section id={id} className="py-24 scroll-mt-20" style={{ background: num === "02" || num === "04" ? "#F8FAFF" : "#fff" }}>
+    <section id={id} className="py-24 scroll-mt-20" style={{ background: num === "02" || num === "04" ? "#FFFBF7" : "#fff" }}>
       <div className="container">{children}</div>
     </section>
   );
@@ -22,7 +22,7 @@ function Check({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-start gap-3 text-sm" style={{ color: "#374151" }}>
       <span className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-xs"
-        style={{ background: "#EFF6FF", color: "#2563EB" }}>✓</span>
+        style={{ background: "#FFF7ED", color: "#F97316" }}>✓</span>
       {children}
     </div>
   );
@@ -65,7 +65,7 @@ export default function Services() {
             <motion.div variants={fadeUp}>
               <Link href="/contact">
                 <span className="inline-flex px-7 py-3.5 rounded-lg text-sm font-semibold cursor-pointer"
-                  style={{ background: "#2563EB", color: "#fff", boxShadow: "0 4px 16px rgba(37,99,235,0.4)" }}>
+                  style={{ background: "#F97316", color: "#fff", boxShadow: "0 4px 16px rgba(249,115,22,0.4)" }}>
                   Book a free consult
                 </span>
               </Link>
@@ -77,7 +77,7 @@ export default function Services() {
       {/* 01 Custom AI Software */}
       <Section id="custom-ai" num="01">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
-          <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#2563EB" }}>01 · Service</motion.p>
+          <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>01 · Service</motion.p>
           <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
             style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
             Custom AI Software Development
@@ -87,18 +87,18 @@ export default function Services() {
           </motion.p>
           <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-8">
             <motion.div variants={fadeUp} className="space-y-4">
-              <p className="text-xs font-mono uppercase tracking-widest font-bold mb-4" style={{ color: "#2563EB" }}>What you get</p>
+              <p className="text-xs font-mono uppercase tracking-widest font-bold mb-4" style={{ color: "#F97316" }}>What you get</p>
               <Check>Full-stack web & mobile apps (React, Next.js, Flutter)</Check>
               <Check>Backend, APIs, and microservices on AWS / Azure / GCP</Check>
               <Check>ML pipelines, data infrastructure, model training & deployment</Check>
               <Check>Production-grade DevOps and observability from day one</Check>
             </motion.div>
-            <motion.div variants={fadeUp} className="p-7 rounded-2xl border" style={{ background: "#F8FAFF", borderColor: "#E2E8F0" }}>
+            <motion.div variants={fadeUp} className="p-7 rounded-2xl border" style={{ background: "#FFFBF7", borderColor: "#E2E8F0" }}>
               <p className="text-xs font-mono uppercase tracking-widest font-bold mb-4" style={{ color: "#64748B" }}>Stack — modern rails</p>
               <div className="grid grid-cols-2 gap-y-2 text-sm" style={{ color: "#374151", fontFamily: "var(--app-font-mono)" }}>
                 {["PyTorch", "TensorFlow", "LangChain", "MLflow", "Kubernetes", "Docker", "React", "Next.js", "FastAPI", "gRPC"].map(t => (
                   <span key={t} className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#2563EB" }} />
+                    <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#F97316" }} />
                     {t}
                   </span>
                 ))}
@@ -111,7 +111,7 @@ export default function Services() {
       {/* 02 Agentic AI */}
       <Section id="agentic" num="02">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
-          <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#2563EB" }}>02 · Service</motion.p>
+          <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>02 · Service</motion.p>
           <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
             style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
             Agentic AI Development
@@ -130,13 +130,13 @@ export default function Services() {
                 className="p-6 rounded-2xl border text-center card-hover"
                 style={{ background: "#fff", borderColor: "#E2E8F0" }}>
                 <div className="w-10 h-10 rounded-full mx-auto mb-4 flex items-center justify-center text-sm font-bold"
-                  style={{ background: "#EFF6FF", color: "#2563EB", fontFamily: "var(--app-font-mono)" }}>{s.n}</div>
+                  style={{ background: "#FFF7ED", color: "#F97316", fontFamily: "var(--app-font-mono)" }}>{s.n}</div>
                 <h3 className="font-bold text-sm mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>{s.title}</h3>
                 <p className="text-xs leading-relaxed" style={{ color: "#64748B" }}>{s.desc}</p>
               </motion.div>
             ))}
           </motion.div>
-          <motion.p variants={fadeUp} className="text-sm italic p-5 rounded-xl border" style={{ color: "#475569", borderColor: "#E2E8F0", background: "#F8FAFF", borderLeft: "3px solid #2563EB" }}>
+          <motion.p variants={fadeUp} className="text-sm italic p-5 rounded-xl border" style={{ color: "#475569", borderColor: "#E2E8F0", background: "#FFFBF7", borderLeft: "3px solid #F97316" }}>
             In the wild: marketing campaigns that self-optimize · supply chains that re-route in real time · sales pipelines that prioritize themselves.
           </motion.p>
         </motion.div>
@@ -145,7 +145,7 @@ export default function Services() {
       {/* 03 AI Agent Creation */}
       <Section id="agents" num="03">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
-          <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#2563EB" }}>03 · Service</motion.p>
+          <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>03 · Service</motion.p>
           <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
             style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
             AI Agent Creation
@@ -161,7 +161,7 @@ export default function Services() {
             ].map((a) => (
               <motion.div key={a.title} variants={fadeUp}
                 className="p-7 rounded-2xl border card-hover"
-                style={{ background: "#F8FAFF", borderColor: "#E2E8F0" }}>
+                style={{ background: "#FFFBF7", borderColor: "#E2E8F0" }}>
                 <h3 className="font-bold text-base mb-3" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>{a.title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{a.desc}</p>
               </motion.div>
@@ -176,7 +176,7 @@ export default function Services() {
       {/* 04 Resource Placement */}
       <Section id="placement" num="04">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
-          <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#2563EB" }}>04 · Service</motion.p>
+          <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>04 · Service</motion.p>
           <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
             style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
             Contractual Resource Placement
@@ -186,7 +186,7 @@ export default function Services() {
           </motion.p>
           <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-8">
             <motion.div variants={fadeUp} className="space-y-4">
-              <p className="text-xs font-mono uppercase tracking-widest font-bold mb-4" style={{ color: "#2563EB" }}>Roles we place</p>
+              <p className="text-xs font-mono uppercase tracking-widest font-bold mb-4" style={{ color: "#F97316" }}>Roles we place</p>
               <Check>AI / ML Engineers (LLMs, RAG, fine-tuning)</Check>
               <Check>Full-Stack Developers (React, Node, Python)</Check>
               <Check>Data Engineers (pipelines, warehousing)</Check>
@@ -229,7 +229,7 @@ export default function Services() {
             <motion.div variants={fadeUp}>
               <Link href="/contact">
                 <span className="inline-flex px-8 py-4 rounded-lg text-sm font-semibold cursor-pointer"
-                  style={{ background: "#2563EB", color: "#fff", boxShadow: "0 4px 20px rgba(37,99,235,0.4)" }}>
+                  style={{ background: "#F97316", color: "#fff", boxShadow: "0 4px 20px rgba(249,115,22,0.4)" }}>
                   Book a free consult
                 </span>
               </Link>

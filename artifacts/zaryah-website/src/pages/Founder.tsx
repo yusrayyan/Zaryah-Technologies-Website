@@ -52,7 +52,7 @@ export default function Founder() {
               Specialist in building technology for social impact. Intelligence driven by collective conscience.
             </p>
             <div className="mt-6 text-sm font-bold tracking-widest text-muted-foreground">
-              CEO & FOUNDER · ZARYAH TECHNOLOGIES · TECHNOLOGY & AI VISIONARY
+              CEO & FOUNDER · DIGITECH EVOQE · TECHNOLOGY & AI VISIONARY
             </div>
           </motion.div>
         </div>

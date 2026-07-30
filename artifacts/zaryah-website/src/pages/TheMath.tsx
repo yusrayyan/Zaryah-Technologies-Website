@@ -72,7 +72,7 @@ export default function TheMath() {
                 Typical US / EU Shop
               </div>
               <div className="px-6 py-5 text-sm font-bold text-primary uppercase tracking-wider border-l border-border bg-primary/5">
-                Zaryah
+                Digitech Evoqe
               </div>
             </div>
 

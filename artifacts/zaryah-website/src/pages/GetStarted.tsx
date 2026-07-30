@@ -80,12 +80,12 @@ function ContactForm() {
 
   function onSubmit(values: FormValues) {
     const subject = encodeURIComponent(
-      `[Zaryah Inquiry] ${values.engagement} — ${values.company}`
+      `[Digitech Evoqe Inquiry] ${values.engagement} — ${values.company}`
     );
     const body = encodeURIComponent(
       `Name: ${values.name}\nCompany: ${values.company}\nEmail: ${values.email}\nEngagement Type: ${values.engagement}\n\nProject Description:\n${values.project}`
     );
-    window.location.href = `mailto:info@zaryahtech.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:info@digitechevoqe.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   }
 
@@ -342,11 +342,11 @@ export default function GetStarted() {
 
           <div className="mt-10 text-center text-sm text-muted-foreground space-y-1">
             <p>Or reach us directly:</p>
-            <a href="mailto:info@zaryahtech.com" className="font-semibold text-primary hover:underline">
-              info@zaryahtech.com
+            <a href="mailto:info@digitechevoqe.com" className="font-semibold text-primary hover:underline">
+              info@digitechevoqe.com
             </a>
             <span className="mx-2">·</span>
-            <a href="https://zaryahtech.com" className="hover:text-primary">zaryahtech.com</a>
+            <a href="https://digitechevoqe.com" className="hover:text-primary">digitechevoqe.com</a>
             <p className="mt-2">India · UAE · Global</p>
           </div>
         </div>

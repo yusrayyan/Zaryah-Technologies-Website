@@ -63,7 +63,7 @@ export default function HowWeWork() {
               {steps.map((s, i) => (
                 <motion.div key={s.title} variants={fadeUp}
                   className="relative p-6 rounded-2xl border card-hover"
-                  style={{ background: "#F8FAFF", borderColor: "#E2E8F0" }}>
+                  style={{ background: "#FFFBF7", borderColor: "#E2E8F0" }}>
                   {i < steps.length - 1 && (
                     <div className="hidden lg:block absolute top-8 right-0 translate-x-1/2 z-10">
                       <svg width="20" height="10" viewBox="0 0 20 10" fill="none">
@@ -73,7 +73,7 @@ export default function HowWeWork() {
                   )}
                   <div className="flex items-center gap-2 mb-4">
                     <span className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold"
-                      style={{ background: "#EFF6FF", color: "#2563EB", fontFamily: "var(--app-font-mono)" }}>{s.num}</span>
+                      style={{ background: "#FFF7ED", color: "#F97316", fontFamily: "var(--app-font-mono)" }}>{s.num}</span>
                     <span className="text-xs font-mono uppercase tracking-wider" style={{ color: "#94A3B8" }}>{s.week}</span>
                   </div>
                   <h3 className="font-bold text-sm mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>{s.title}</h3>
@@ -92,10 +92,10 @@ export default function HowWeWork() {
       </section>
 
       {/* The Math */}
-      <section className="py-24" style={{ background: "#F8FAFF" }}>
+      <section className="py-24" style={{ background: "#FFFBF7" }}>
         <div className="container">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
-            <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#2563EB" }}>The math</motion.p>
+            <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>The math</motion.p>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
               style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
               World-class output, at a fraction of the bill.
@@ -107,7 +107,7 @@ export default function HowWeWork() {
               <div className="grid grid-cols-3 px-6 py-4" style={{ background: "#F1F5F9" }}>
                 <span className="text-xs font-mono uppercase tracking-widest font-bold" style={{ color: "#64748B" }}>What you're comparing</span>
                 <span className="text-xs font-mono uppercase tracking-widest font-bold text-center" style={{ color: "#64748B" }}>Typical US/EU shop</span>
-                <span className="text-xs font-mono uppercase tracking-widest font-bold text-center" style={{ color: "#2563EB" }}>Zaryah</span>
+                <span className="text-xs font-mono uppercase tracking-widest font-bold text-center" style={{ color: "#F97316" }}>Digitech Evoqe</span>
               </div>
               {comparison.map((row, i) => (
                 <div key={row.label}
@@ -115,13 +115,13 @@ export default function HowWeWork() {
                   style={{ borderColor: "#E2E8F0", background: i % 2 === 0 ? "#fff" : "#FAFBFF" }}>
                   <span className="text-sm" style={{ color: "#374151" }}>{row.label}</span>
                   <span className="text-sm text-center" style={{ color: "#94A3B8" }}>{row.them}</span>
-                  <span className="text-sm font-bold text-center" style={{ color: "#2563EB" }}>{row.us}</span>
+                  <span className="text-sm font-bold text-center" style={{ color: "#F97316" }}>{row.us}</span>
                 </div>
               ))}
             </motion.div>
             <motion.blockquote variants={fadeUp}
               className="mt-10 text-base italic px-6 py-5 rounded-xl border-l-4"
-              style={{ color: "#475569", borderColor: "#2563EB", background: "#fff", borderWidth: "0 0 0 4px", borderStyle: "solid", boxShadow: "0 0 0 1px #E2E8F0" }}>
+              style={{ color: "#475569", borderColor: "#F97316", background: "#fff", borderWidth: "0 0 0 4px", borderStyle: "solid", boxShadow: "0 0 0 1px #E2E8F0" }}>
               Save the runway. Spend it on something that matters — like winning the market.
             </motion.blockquote>
           </motion.div>
@@ -132,7 +132,7 @@ export default function HowWeWork() {
       <section className="py-24" style={{ background: "#fff" }}>
         <div className="container">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
-            <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#2563EB" }}>Engagement options</motion.p>
+            <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>Engagement options</motion.p>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-12 leading-tight"
               style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
               Three doors. Walk through any of them.
@@ -141,7 +141,7 @@ export default function HowWeWork() {
               {tiers.map((t) => (
                 <motion.div key={t.title} variants={fadeUp}
                   className="rounded-2xl border p-8 flex flex-col gap-5 card-hover"
-                  style={{ background: t.featured ? "#0F172A" : "#F8FAFF", borderColor: t.featured ? "#0F172A" : "#E2E8F0" }}>
+                  style={{ background: t.featured ? "#0F172A" : "#FFFBF7", borderColor: t.featured ? "#0F172A" : "#E2E8F0" }}>
                   <div>
                     <span className="eyebrow text-xs" style={{ color: t.featured ? "#38BDF8" : "#64748B" }}>{t.label}</span>
                     <h3 className="font-bold text-lg mt-2 mb-3" style={{ fontFamily: "var(--app-font-display)", color: t.featured ? "#F8FAFC" : "#0F172A" }}>{t.title}</h3>
@@ -150,9 +150,9 @@ export default function HowWeWork() {
                   <Link href="/contact">
                     <span className="mt-auto inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold cursor-pointer transition-all"
                       style={{
-                        background: t.featured ? "#2563EB" : "#fff",
-                        color: t.featured ? "#fff" : "#2563EB",
-                        border: t.featured ? "none" : "1px solid #BFDBFE",
+                        background: t.featured ? "#F97316" : "#fff",
+                        color: t.featured ? "#fff" : "#F97316",
+                        border: t.featured ? "none" : "1px solid #FED7AA",
                       }}>
                       Get started
                     </span>
@@ -181,7 +181,7 @@ export default function HowWeWork() {
             <motion.div variants={fadeUp}>
               <Link href="/contact">
                 <span className="inline-flex px-8 py-4 rounded-lg text-sm font-semibold cursor-pointer"
-                  style={{ background: "#2563EB", color: "#fff", boxShadow: "0 4px 20px rgba(37,99,235,0.4)" }}>
+                  style={{ background: "#F97316", color: "#fff", boxShadow: "0 4px 20px rgba(249,115,22,0.4)" }}>
                   Book a free consult
                 </span>
               </Link>

@@ -13,7 +13,7 @@ export function Scene5() {
     return () => timers.forEach(t => clearTimeout(t));
   }, []);
 
-  const emailText = "info@zaryahtech.com";
+  const emailText = "info@digitechevoqe.com";
 
   return (
     <motion.div 
@@ -54,7 +54,7 @@ export function Scene5() {
             animate={phase >= 1 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
             transition={{ type: 'spring', stiffness: 200, damping: 20 }}
           >
-            ZARYAH TECHNOLOGIES
+            DIGITECH EVOQE
           </motion.h1>
           <motion.div
             className="absolute -bottom-[1vw] left-[10%] right-[10%] h-[0.5vw] bg-[#F59E0B] shadow-[0_0_20px_rgba(245,158,11,0.6)]"

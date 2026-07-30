@@ -15,7 +15,7 @@ export function Scene1() {
     return () => timers.forEach(t => clearTimeout(t));
   }, []);
 
-  const zaryahText = "ZARYAH";
+  const zaryahText = "DIGITECH EVOQE";
 
   return (
     <motion.div 
@@ -36,7 +36,7 @@ export function Scene1() {
       </motion.div>
 
       <div className="relative z-10 flex flex-col items-center">
-        {/* ZARYAH Word */}
+        {/* DIGITECH EVOQE Word */}
         <div className="relative overflow-hidden">
           <motion.h1 
             className="text-[14vw] font-bold leading-none tracking-tighter text-[#FAF5FF] pb-[1vw]"

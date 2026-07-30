@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import zaryahMark from "@assets/af522dd8-adc7-4119-8495-83a4d391c046_1782792991386.jpeg";
+import evoqeLogo from "@assets/IMG_2465_1785400095798.png";
 
 const navLinks = [
   { href: "/services", label: "Services" },
@@ -38,15 +38,15 @@ export function Navbar() {
         <Link href="/">
           <span className="flex items-center gap-2.5 cursor-pointer select-none shrink-0">
             <img
-              src={zaryahMark}
-              alt="Zaryah mark"
+              src={evoqeLogo}
+              alt="Digitech Evoqe logo"
               className="h-8 w-auto object-contain"
             />
             <span
               className="font-bold text-[14.5px] tracking-tight"
               style={{ fontFamily: "var(--app-font-display)", color: "#0F172A", letterSpacing: "-0.01em" }}
             >
-              ZARYAH TECHNOLOGIES
+              Digitech Evoqe
             </span>
           </span>
         </Link>
@@ -57,8 +57,8 @@ export function Navbar() {
               <span
                 className="px-4 py-2 rounded-md text-sm font-medium cursor-pointer transition-all duration-150 block"
                 style={{
-                  color: active(href) ? "#2563EB" : "#374151",
-                  background: active(href) ? "#EFF6FF" : "transparent",
+                  color: active(href) ? "#F97316" : "#374151",
+                  background: active(href) ? "#FFF7ED" : "transparent",
                   fontFamily: "var(--app-font-sans)",
                 }}
               >
@@ -73,11 +73,11 @@ export function Navbar() {
             <span
               className="inline-flex items-center px-5 py-2.5 rounded-lg text-sm font-semibold cursor-pointer transition-all duration-150 shrink-0"
               style={{
-                background: "#2563EB",
+                background: "#F97316",
                 color: "#fff",
                 fontFamily: "var(--app-font-sans)",
                 letterSpacing: "-0.01em",
-                boxShadow: "0 1px 6px rgba(37,99,235,0.28), inset 0 1px 0 rgba(255,255,255,0.12)",
+                boxShadow: "0 1px 6px rgba(249,115,22,0.28), inset 0 1px 0 rgba(255,255,255,0.12)",
               }}
             >
               Book a free consult
@@ -108,7 +108,7 @@ export function Navbar() {
               <Link key={href} href={href}>
                 <span
                   className="block px-4 py-3 rounded-lg text-sm font-medium cursor-pointer"
-                  style={{ color: active(href) ? "#2563EB" : "#374151", background: active(href) ? "#EFF6FF" : "transparent" }}
+                  style={{ color: active(href) ? "#F97316" : "#374151", background: active(href) ? "#FFF7ED" : "transparent" }}
                 >
                   {label}
                 </span>
@@ -117,7 +117,7 @@ export function Navbar() {
             <Link href="/contact">
               <span
                 className="block mt-3 px-4 py-3 rounded-lg text-sm font-semibold text-center cursor-pointer"
-                style={{ background: "#2563EB", color: "#fff" }}
+                style={{ background: "#F97316", color: "#fff" }}
               >
                 Book a free consult
               </span>

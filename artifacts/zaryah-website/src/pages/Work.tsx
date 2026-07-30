@@ -16,11 +16,11 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.08 } }
 const filters = ["All", "B2C", "B2B", "Education", "Islamic AI", "Legal", "Healthcare", "Infrastructure"];
 
 const projects = [
-  { tag: "B2C · Education", cats: ["B2C", "Education"], title: "Adaptive learning platform", desc: "Behavioural-science learning, personalised to each student's thinking style and outcome goal.", Icon: BookOpen, color: "#2563EB", bg: "#EFF6FF" },
+  { tag: "B2C · Education", cats: ["B2C", "Education"], title: "Adaptive learning platform", desc: "Behavioural-science learning, personalised to each student's thinking style and outcome goal.", Icon: BookOpen, color: "#F97316", bg: "#FFF7ED" },
   { tag: "B2C · Skills & Career", cats: ["B2C", "Education"], title: "Career & skills builder", desc: "Coursework → job-ready capability for a specific target role, mapped to employer demand.", Icon: TrendingUp, color: "#0EA5E9", bg: "#F0F9FF" },
   { tag: "B2C · Jobs & Hiring", cats: ["B2C", "Education"], title: "Job-matching for seekers", desc: "Matches individuals to roles on 400+ behavioural parameters — not just keywords.", Icon: Users, color: "#8B5CF6", bg: "#F5F3FF" },
   { tag: "B2B · Competitive Exams", cats: ["B2B", "Education"], title: "Competitive-exam prep", desc: "Govt & civil-service exam preparation, measured directly against selection benchmarks.", Icon: Trophy, color: "#F59E0B", bg: "#FFFBEB" },
-  { tag: "B2B · Colleges", cats: ["B2B", "Education"], title: "College placement platform", desc: "Every student tracked against one metric: did they get placed. Full lifecycle in one dashboard.", Icon: GraduationCap, color: "#2563EB", bg: "#EFF6FF" },
+  { tag: "B2B · Colleges", cats: ["B2B", "Education"], title: "College placement platform", desc: "Every student tracked against one metric: did they get placed. Full lifecycle in one dashboard.", Icon: GraduationCap, color: "#F97316", bg: "#FFF7ED" },
   { tag: "B2B · Corporate Hiring", cats: ["B2B", "Education"], title: "Corporate hiring marketplace", desc: "Employers hire behaviourally-matched, job-ready candidates — hiring on fit, not keywords.", Icon: Briefcase, color: "#0EA5E9", bg: "#F0F9FF" },
   { tag: "Islamic AI · MENA", cats: ["Islamic AI"], title: "Ethical AI ecosystem", desc: "A culturally-aware, faith-conscious AI ecosystem built for the Islamic market — MENA and beyond.", Icon: Globe, color: "#10B981", bg: "#ECFDF5" },
   { tag: "LegalTech", cats: ["Legal"], title: "Legal AI agent", desc: "Document analysis, case management, and NLP-powered legal research in a single agent.", Icon: Scale, color: "#6366F1", bg: "#EEF2FF" },
@@ -76,7 +76,7 @@ export default function Work() {
       </section>
 
       {/* Grid */}
-      <section className="py-20" style={{ background: "#F8FAFF" }}>
+      <section className="py-20" style={{ background: "#FFFBF7" }}>
         <div className="container">
           {/* Filter pills */}
           <div className="flex flex-wrap gap-2 mb-10">
@@ -86,9 +86,9 @@ export default function Work() {
                 onClick={() => setActive(f)}
                 className="px-4 py-2 rounded-full text-xs font-mono tracking-wide border transition-all cursor-pointer"
                 style={{
-                  background: active === f ? "#2563EB" : "#fff",
+                  background: active === f ? "#F97316" : "#fff",
                   color: active === f ? "#fff" : "#64748B",
-                  borderColor: active === f ? "#2563EB" : "#D1D5DB",
+                  borderColor: active === f ? "#F97316" : "#D1D5DB",
                 }}
               >
                 {f}
@@ -146,7 +146,7 @@ export default function Work() {
             <motion.div variants={fadeUp}>
               <Link href="/contact">
                 <span className="inline-flex px-8 py-4 rounded-lg text-sm font-semibold cursor-pointer"
-                  style={{ background: "#2563EB", color: "#fff", boxShadow: "0 4px 20px rgba(37,99,235,0.4)" }}>
+                  style={{ background: "#F97316", color: "#fff", boxShadow: "0 4px 20px rgba(249,115,22,0.4)" }}>
                   Book a free consult
                 </span>
               </Link>

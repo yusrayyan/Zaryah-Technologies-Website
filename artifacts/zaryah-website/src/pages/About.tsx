@@ -12,8 +12,8 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } 
 function Stat({ target, suffix, label }: { target: number; suffix: string; label: string }) {
   const { value, ref } = useCountUp(target, 1.6);
   return (
-    <div ref={ref} className="text-center p-6 rounded-2xl border" style={{ background: "#F8FAFF", borderColor: "#E2E8F0" }}>
-      <div className="text-4xl font-extrabold" style={{ fontFamily: "var(--app-font-display)", color: "#2563EB" }}>
+    <div ref={ref} className="text-center p-6 rounded-2xl border" style={{ background: "#FFFBF7", borderColor: "#E2E8F0" }}>
+      <div className="text-4xl font-extrabold" style={{ fontFamily: "var(--app-font-display)", color: "#F97316" }}>
         {value}{suffix}
       </div>
       <div className="mt-2 text-sm" style={{ color: "#64748B" }}>{label}</div>
@@ -52,7 +52,7 @@ export default function About() {
               Intelligence, driven by collective conscience.
             </motion.h1>
             <motion.p variants={fadeUp} className="text-lg" style={{ color: "#94A3B8" }}>
-              Zaryah Technologies is an AI software studio building production-grade systems across education, Islamic finance, and AI infrastructure. Five years in, IIT-incubated, 35 engineers — we exist to turn AI from a demo into an outcome.
+              Digitech Evoqe is an AI software studio building production-grade systems across education, Islamic finance, and AI infrastructure. Five years in, IIT-incubated, 35 engineers — we exist to turn AI from a demo into an outcome.
             </motion.p>
           </motion.div>
         </div>
@@ -72,10 +72,10 @@ export default function About() {
       </section>
 
       {/* Founder */}
-      <section className="py-24" style={{ background: "#F8FAFF" }}>
+      <section className="py-24" style={{ background: "#FFFBF7" }}>
         <div className="container">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
-            <motion.p variants={fadeUp} className="eyebrow mb-8" style={{ color: "#2563EB" }}>Founder & CEO · Zaryah Technologies</motion.p>
+            <motion.p variants={fadeUp} className="eyebrow mb-8" style={{ color: "#F97316" }}>Founder & CEO · Digitech Evoqe</motion.p>
             <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-12 items-start mb-14">
               <motion.div variants={fadeUp}>
                 <img
@@ -140,7 +140,7 @@ export default function About() {
                   <ul className="space-y-2.5">
                     {items.map((item) => (
                       <li key={item} className="text-sm leading-snug flex items-start gap-2" style={{ color: "#374151" }}>
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#2563EB" }} />
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#F97316" }} />
                         {item}
                       </li>
                     ))}
@@ -156,7 +156,7 @@ export default function About() {
       <section className="py-24" style={{ background: "#fff" }}>
         <div className="container">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
-            <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#2563EB" }}>Advisory board</motion.p>
+            <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>Advisory board</motion.p>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
               style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
               Counsel that compounds.
@@ -170,7 +170,7 @@ export default function About() {
               {advisors.civil.map((a) => (
                 <motion.div key={a.name} variants={fadeUp}
                   className="p-5 rounded-xl border card-hover"
-                  style={{ background: "#F8FAFF", borderColor: "#E2E8F0" }}>
+                  style={{ background: "#FFFBF7", borderColor: "#E2E8F0" }}>
                   <div className="font-bold text-sm mb-1" style={{ color: "#0F172A" }}>{a.name}</div>
                   <div className="text-xs" style={{ color: "#64748B" }}>{a.role}</div>
                 </motion.div>
@@ -182,7 +182,7 @@ export default function About() {
               {advisors.academia.map((a) => (
                 <motion.div key={a.name} variants={fadeUp}
                   className="p-5 rounded-xl border card-hover"
-                  style={{ background: "#F8FAFF", borderColor: "#E2E8F0" }}>
+                  style={{ background: "#FFFBF7", borderColor: "#E2E8F0" }}>
                   <div className="font-bold text-sm mb-1" style={{ color: "#0F172A" }}>{a.name}</div>
                   <div className="text-xs" style={{ color: "#64748B" }}>{a.role}</div>
                 </motion.div>
@@ -190,7 +190,7 @@ export default function About() {
             </motion.div>
 
             <motion.div variants={fadeUp}
-              className="p-7 rounded-2xl border" style={{ background: "#F8FAFF", borderColor: "#E2E8F0", borderLeft: "4px solid #2563EB" }}>
+              className="p-7 rounded-2xl border" style={{ background: "#FFFBF7", borderColor: "#E2E8F0", borderLeft: "4px solid #F97316" }}>
               <p className="text-xs font-mono uppercase tracking-widest font-bold mb-2" style={{ color: "#64748B" }}>Institutional access</p>
               <p className="text-sm leading-relaxed" style={{ color: "#374151" }}>
                 Direct relationships across India's education ecosystem, government bodies, and Tier-1 institutions — translating into faster procurement and warmer doors.
@@ -214,7 +214,7 @@ export default function About() {
             <motion.div variants={fadeUp}>
               <Link href="/contact">
                 <span className="inline-flex px-8 py-4 rounded-lg text-sm font-semibold cursor-pointer"
-                  style={{ background: "#2563EB", color: "#fff", boxShadow: "0 4px 20px rgba(37,99,235,0.4)" }}>
+                  style={{ background: "#F97316", color: "#fff", boxShadow: "0 4px 20px rgba(249,115,22,0.4)" }}>
                   Book a free consult
                 </span>
               </Link>

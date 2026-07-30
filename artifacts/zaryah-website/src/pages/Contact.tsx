@@ -23,7 +23,7 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const body = `Name: ${form.name}%0AEmail: ${form.email}%0ACompany: ${form.company}%0AEngagement: ${form.engagement}%0A%0A${form.message}`;
-    window.location.href = `mailto:info@zaryahtech.com?subject=Project Inquiry — ${form.company}&body=${body}`;
+    window.location.href = `mailto:info@digitechevoqe.com?subject=Project Inquiry — ${form.company}&body=${body}`;
   };
 
   const inputStyle = {
@@ -66,7 +66,7 @@ export default function Contact() {
                 <motion.div variants={fadeUp}><Check>Fixed quote — no hourly games</Check></motion.div>
               </motion.div>
               <motion.p variants={fadeUp} className="text-sm" style={{ color: "#475569", fontFamily: "var(--app-font-mono)" }}>
-                info@zaryahtech.com · India · UAE · Global
+                info@digitechevoqe.com · India · UAE · Global
               </motion.p>
             </motion.div>
 
@@ -138,7 +138,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   className="w-full py-3.5 rounded-xl text-sm font-semibold transition-all"
-                  style={{ background: "#2563EB", color: "#fff", boxShadow: "0 4px 16px rgba(37,99,235,0.4)", border: "none", cursor: "pointer" }}
+                  style={{ background: "#F97316", color: "#fff", boxShadow: "0 4px 16px rgba(249,115,22,0.4)", border: "none", cursor: "pointer" }}
                 >
                   Send →
                 </button>
@@ -149,10 +149,10 @@ export default function Contact() {
       </section>
 
       {/* What happens next */}
-      <section className="py-24" style={{ background: "#F8FAFF" }}>
+      <section className="py-24" style={{ background: "#FFFBF7" }}>
         <div className="container">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
-            <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#2563EB" }}>What happens next</motion.p>
+            <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>What happens next</motion.p>
             <motion.h2 variants={fadeUp} className="text-3xl font-bold mb-12" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
               No bots. No wait. Just answers.
             </motion.h2>
@@ -166,7 +166,7 @@ export default function Contact() {
                   className="p-8 rounded-2xl border card-hover"
                   style={{ background: "#fff", borderColor: "#E2E8F0" }}>
                   <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mb-6"
-                    style={{ background: "#EFF6FF", color: "#2563EB", fontFamily: "var(--app-font-mono)" }}>{s.n}</div>
+                    style={{ background: "#FFF7ED", color: "#F97316", fontFamily: "var(--app-font-mono)" }}>{s.n}</div>
                   <h3 className="font-bold text-base mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>{s.title}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{s.desc}</p>
                 </motion.div>
