@@ -12,7 +12,7 @@ function Check({ children }: { children: React.ReactNode }) {
     <div className="flex items-start gap-3">
       <span className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-xs"
         style={{ background: "rgba(37,99,235,0.25)", color: "#FB923C" }}>✓</span>
-      <span className="text-sm" style={{ color: "#CBD5E1" }}>{children}</span>
+      <span className="text-sm" style={{ color: "#CCCCCC" }}>{children}</span>
     </div>
   );
 }
@@ -28,11 +28,11 @@ export default function Contact() {
 
   const inputStyle = {
     width: "100%",
-    background: "#06111F",
-    border: "1px solid #1E3A5F",
+    background: "#0A0A0A",
+    border: "1px solid #2A2A2A",
     borderRadius: "10px",
     padding: "12px 16px",
-    color: "#F8FAFC",
+    color: "#FFFFFF",
     fontSize: "14px",
     fontFamily: "var(--app-font-sans)",
     outline: "none",
@@ -42,7 +42,7 @@ export default function Contact() {
     <div className="flex flex-col w-full">
 
       {/* Hero */}
-      <section className="py-24" style={{ background: "#060D1F" }}>
+      <section className="py-24" style={{ background: "#0A0A0A" }}>
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{ backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "60px 60px" }}
@@ -54,10 +54,10 @@ export default function Contact() {
             <motion.div initial="hidden" animate="visible" variants={stagger} className="space-y-8">
               <motion.p variants={fadeUp} className="eyebrow" style={{ color: "#38BDF8" }}>Let's build</motion.p>
               <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl font-extrabold leading-tight"
-                style={{ fontFamily: "var(--app-font-display)", color: "#F8FAFC" }}>
+                style={{ fontFamily: "var(--app-font-display)", color: "#FFFFFF" }}>
                 The first conversation is on the house.
               </motion.h1>
-              <motion.p variants={fadeUp} className="text-lg" style={{ color: "#94A3B8" }}>
+              <motion.p variants={fadeUp} className="text-lg" style={{ color: "#999999" }}>
                 Bring us a problem, a sketch, or a vague hunch. We'll come back in 48 hours with a plan, a price, and a path to production.
               </motion.p>
               <motion.div variants={stagger} className="space-y-3">
@@ -65,7 +65,7 @@ export default function Contact() {
                 <motion.div variants={fadeUp}><Check>Custom POC scope within 5 days</Check></motion.div>
                 <motion.div variants={fadeUp}><Check>Fixed quote — no hourly games</Check></motion.div>
               </motion.div>
-              <motion.p variants={fadeUp} className="text-sm" style={{ color: "#475569", fontFamily: "var(--app-font-mono)" }}>
+              <motion.p variants={fadeUp} className="text-sm" style={{ color: "#666666", fontFamily: "var(--app-font-mono)" }}>
                 info@digitechevoqe.com · India · UAE · Global
               </motion.p>
             </motion.div>
@@ -76,12 +76,12 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="rounded-2xl p-8"
-              style={{ background: "#0F1A35", border: "1px solid #1E3A5F" }}
+              style={{ background: "#111111", border: "1px solid #2A2A2A" }}
             >
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono uppercase tracking-wider" style={{ color: "#64748B" }}>Name</label>
+                    <label className="text-xs font-mono uppercase tracking-wider" style={{ color: "#777777" }}>Name</label>
                     <input
                       required
                       placeholder="Your name"
@@ -91,7 +91,7 @@ export default function Contact() {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono uppercase tracking-wider" style={{ color: "#64748B" }}>Work email</label>
+                    <label className="text-xs font-mono uppercase tracking-wider" style={{ color: "#777777" }}>Work email</label>
                     <input
                       required
                       type="email"
@@ -103,7 +103,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-xs font-mono uppercase tracking-wider" style={{ color: "#64748B" }}>Company</label>
+                  <label className="text-xs font-mono uppercase tracking-wider" style={{ color: "#777777" }}>Company</label>
                   <input
                     placeholder="Your company"
                     value={form.company}
@@ -112,11 +112,11 @@ export default function Contact() {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-xs font-mono uppercase tracking-wider" style={{ color: "#64748B" }}>Engagement type</label>
+                  <label className="text-xs font-mono uppercase tracking-wider" style={{ color: "#777777" }}>Engagement type</label>
                   <select
                     value={form.engagement}
                     onChange={(e) => setForm({ ...form, engagement: e.target.value })}
-                    style={{ ...inputStyle, color: form.engagement ? "#F8FAFC" : "#475569" }}
+                    style={{ ...inputStyle, color: form.engagement ? "#FFFFFF" : "#666666" }}
                   >
                     <option value="" disabled>Discovery / Project / Embedded</option>
                     <option value="Discovery">Discovery — Free (2 weeks)</option>
@@ -125,7 +125,7 @@ export default function Contact() {
                   </select>
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-xs font-mono uppercase tracking-wider" style={{ color: "#64748B" }}>What are you trying to build?</label>
+                  <label className="text-xs font-mono uppercase tracking-wider" style={{ color: "#777777" }}>What are you trying to build?</label>
                   <textarea
                     required
                     rows={5}
@@ -153,7 +153,7 @@ export default function Contact() {
         <div className="container">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
             <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>What happens next</motion.p>
-            <motion.h2 variants={fadeUp} className="text-3xl font-bold mb-12" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
+            <motion.h2 variants={fadeUp} className="text-3xl font-bold mb-12" style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>
               No bots. No wait. Just answers.
             </motion.h2>
             <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -164,11 +164,11 @@ export default function Contact() {
               ].map((s) => (
                 <motion.div key={s.n} variants={fadeUp}
                   className="p-8 rounded-2xl border card-hover"
-                  style={{ background: "#fff", borderColor: "#E2E8F0" }}>
+                  style={{ background: "#fff", borderColor: "#E5E5E5" }}>
                   <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mb-6"
                     style={{ background: "#FFF7ED", color: "#F97316", fontFamily: "var(--app-font-mono)" }}>{s.n}</div>
-                  <h3 className="font-bold text-base mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>{s.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{s.desc}</p>
+                  <h3 className="font-bold text-base mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>{s.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "#666666" }}>{s.desc}</p>
                 </motion.div>
               ))}
             </motion.div>

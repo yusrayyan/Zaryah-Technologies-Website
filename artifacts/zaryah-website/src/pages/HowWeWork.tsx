@@ -36,7 +36,7 @@ export default function HowWeWork() {
     <div className="flex flex-col w-full">
 
       {/* Hero */}
-      <section className="py-24" style={{ background: "#060D1F" }}>
+      <section className="py-24" style={{ background: "#0A0A0A" }}>
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{ backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "60px 60px" }}
@@ -45,10 +45,10 @@ export default function HowWeWork() {
           <motion.div initial="hidden" animate="visible" variants={stagger} className="space-y-6 max-w-3xl">
             <motion.p variants={fadeUp} className="eyebrow" style={{ color: "#38BDF8" }}>How we work</motion.p>
             <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl font-extrabold leading-tight"
-              style={{ fontFamily: "var(--app-font-display)", color: "#F8FAFC" }}>
+              style={{ fontFamily: "var(--app-font-display)", color: "#FFFFFF" }}>
               From kickoff to production in weeks, not quarters.
             </motion.h1>
-            <motion.p variants={fadeUp} className="text-lg" style={{ color: "#94A3B8" }}>
+            <motion.p variants={fadeUp} className="text-lg" style={{ color: "#999999" }}>
               An agile, lean delivery loop. We ship something real every two weeks and iterate with you in the room — daily syncs in your timezone, code in your repo from day one, no lock-in.
             </motion.p>
           </motion.div>
@@ -63,28 +63,28 @@ export default function HowWeWork() {
               {steps.map((s, i) => (
                 <motion.div key={s.title} variants={fadeUp}
                   className="relative p-6 rounded-2xl border card-hover"
-                  style={{ background: "#FFFBF7", borderColor: "#E2E8F0" }}>
+                  style={{ background: "#FFFBF7", borderColor: "#E5E5E5" }}>
                   {i < steps.length - 1 && (
                     <div className="hidden lg:block absolute top-8 right-0 translate-x-1/2 z-10">
                       <svg width="20" height="10" viewBox="0 0 20 10" fill="none">
-                        <path d="M0 5h18M14 1l4 4-4 4" stroke="#CBD5E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M0 5h18M14 1l4 4-4 4" stroke="#CCCCCC" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </div>
                   )}
                   <div className="flex items-center gap-2 mb-4">
                     <span className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold"
                       style={{ background: "#FFF7ED", color: "#F97316", fontFamily: "var(--app-font-mono)" }}>{s.num}</span>
-                    <span className="text-xs font-mono uppercase tracking-wider" style={{ color: "#94A3B8" }}>{s.week}</span>
+                    <span className="text-xs font-mono uppercase tracking-wider" style={{ color: "#999999" }}>{s.week}</span>
                   </div>
-                  <h3 className="font-bold text-sm mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>{s.title}</h3>
-                  <p className="text-xs leading-relaxed" style={{ color: "#64748B" }}>{s.desc}</p>
+                  <h3 className="font-bold text-sm mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>{s.title}</h3>
+                  <p className="text-xs leading-relaxed" style={{ color: "#777777" }}>{s.desc}</p>
                 </motion.div>
               ))}
             </motion.div>
             <motion.div variants={fadeUp} className="flex flex-wrap gap-3 mt-8">
               {["✓ Daily syncs in your timezone", "✓ Code in your repo from day one", "✓ No lock-in — your IP"].map((p) => (
                 <span key={p} className="px-4 py-2 rounded-full text-xs font-medium border"
-                  style={{ color: "#374151", borderColor: "#D1D5DB", background: "#fff" }}>{p}</span>
+                  style={{ color: "#444444", borderColor: "#D4D4D4", background: "#fff" }}>{p}</span>
               ))}
             </motion.div>
           </motion.div>
@@ -97,31 +97,31 @@ export default function HowWeWork() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
             <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>The math</motion.p>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
-              style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
+              style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>
               World-class output, at a fraction of the bill.
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-base mb-10 max-w-2xl" style={{ color: "#475569" }}>
+            <motion.p variants={fadeUp} className="text-base mb-10 max-w-2xl" style={{ color: "#666666" }}>
               Same caliber engineers. A different cost structure — and we pass it through to you.
             </motion.p>
-            <motion.div variants={fadeUp} className="rounded-2xl border overflow-hidden" style={{ borderColor: "#E2E8F0" }}>
-              <div className="grid grid-cols-3 px-6 py-4" style={{ background: "#F1F5F9" }}>
-                <span className="text-xs font-mono uppercase tracking-widest font-bold" style={{ color: "#64748B" }}>What you're comparing</span>
-                <span className="text-xs font-mono uppercase tracking-widest font-bold text-center" style={{ color: "#64748B" }}>Typical US/EU shop</span>
+            <motion.div variants={fadeUp} className="rounded-2xl border overflow-hidden" style={{ borderColor: "#E5E5E5" }}>
+              <div className="grid grid-cols-3 px-6 py-4" style={{ background: "#F5F5F5" }}>
+                <span className="text-xs font-mono uppercase tracking-widest font-bold" style={{ color: "#777777" }}>What you're comparing</span>
+                <span className="text-xs font-mono uppercase tracking-widest font-bold text-center" style={{ color: "#777777" }}>Typical US/EU shop</span>
                 <span className="text-xs font-mono uppercase tracking-widest font-bold text-center" style={{ color: "#F97316" }}>Digitech Evoqe</span>
               </div>
               {comparison.map((row, i) => (
                 <div key={row.label}
                   className="grid grid-cols-3 px-6 py-5 border-t items-center"
-                  style={{ borderColor: "#E2E8F0", background: i % 2 === 0 ? "#fff" : "#FAFBFF" }}>
-                  <span className="text-sm" style={{ color: "#374151" }}>{row.label}</span>
-                  <span className="text-sm text-center" style={{ color: "#94A3B8" }}>{row.them}</span>
+                  style={{ borderColor: "#E5E5E5", background: i % 2 === 0 ? "#fff" : "#FAFBFF" }}>
+                  <span className="text-sm" style={{ color: "#444444" }}>{row.label}</span>
+                  <span className="text-sm text-center" style={{ color: "#999999" }}>{row.them}</span>
                   <span className="text-sm font-bold text-center" style={{ color: "#F97316" }}>{row.us}</span>
                 </div>
               ))}
             </motion.div>
             <motion.blockquote variants={fadeUp}
               className="mt-10 text-base italic px-6 py-5 rounded-xl border-l-4"
-              style={{ color: "#475569", borderColor: "#F97316", background: "#fff", borderWidth: "0 0 0 4px", borderStyle: "solid", boxShadow: "0 0 0 1px #E2E8F0" }}>
+              style={{ color: "#666666", borderColor: "#F97316", background: "#fff", borderWidth: "0 0 0 4px", borderStyle: "solid", boxShadow: "0 0 0 1px #E5E5E5" }}>
               Save the runway. Spend it on something that matters — like winning the market.
             </motion.blockquote>
           </motion.div>
@@ -134,18 +134,18 @@ export default function HowWeWork() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
             <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>Engagement options</motion.p>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-12 leading-tight"
-              style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
+              style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>
               Three doors. Walk through any of them.
             </motion.h2>
             <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {tiers.map((t) => (
                 <motion.div key={t.title} variants={fadeUp}
                   className="rounded-2xl border p-8 flex flex-col gap-5 card-hover"
-                  style={{ background: t.featured ? "#0F172A" : "#FFFBF7", borderColor: t.featured ? "#0F172A" : "#E2E8F0" }}>
+                  style={{ background: t.featured ? "#111111" : "#FFFBF7", borderColor: t.featured ? "#111111" : "#E5E5E5" }}>
                   <div>
-                    <span className="eyebrow text-xs" style={{ color: t.featured ? "#38BDF8" : "#64748B" }}>{t.label}</span>
-                    <h3 className="font-bold text-lg mt-2 mb-3" style={{ fontFamily: "var(--app-font-display)", color: t.featured ? "#F8FAFC" : "#0F172A" }}>{t.title}</h3>
-                    <p className="text-sm leading-relaxed" style={{ color: t.featured ? "#94A3B8" : "#475569" }}>{t.desc}</p>
+                    <span className="eyebrow text-xs" style={{ color: t.featured ? "#38BDF8" : "#777777" }}>{t.label}</span>
+                    <h3 className="font-bold text-lg mt-2 mb-3" style={{ fontFamily: "var(--app-font-display)", color: t.featured ? "#FFFFFF" : "#111111" }}>{t.title}</h3>
+                    <p className="text-sm leading-relaxed" style={{ color: t.featured ? "#999999" : "#666666" }}>{t.desc}</p>
                   </div>
                   <Link href="/contact">
                     <span className="mt-auto inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold cursor-pointer transition-all"
@@ -160,7 +160,7 @@ export default function HowWeWork() {
                 </motion.div>
               ))}
             </motion.div>
-            <motion.p variants={fadeUp} className="mt-6 text-xs text-center" style={{ color: "#94A3B8" }}>
+            <motion.p variants={fadeUp} className="mt-6 text-xs text-center" style={{ color: "#999999" }}>
               All three include: dedicated PM · daily syncs · weekly demos · your repo · your IP.
             </motion.p>
           </motion.div>
@@ -168,14 +168,14 @@ export default function HowWeWork() {
       </section>
 
       {/* CTA Band */}
-      <section className="py-24" style={{ background: "#060D1F" }}>
+      <section className="py-24" style={{ background: "#0A0A0A" }}>
         <div className="container text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="space-y-6 max-w-xl mx-auto">
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold"
-              style={{ fontFamily: "var(--app-font-display)", color: "#F8FAFC" }}>
+              style={{ fontFamily: "var(--app-font-display)", color: "#FFFFFF" }}>
               Ready to start the conversation?
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-base" style={{ color: "#94A3B8" }}>
+            <motion.p variants={fadeUp} className="text-base" style={{ color: "#999999" }}>
               The first call is free. We'll come back with a plan, a price, and a path to production.
             </motion.p>
             <motion.div variants={fadeUp}>

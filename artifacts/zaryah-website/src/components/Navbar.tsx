@@ -30,7 +30,7 @@ export function Navbar() {
       style={{
         background: "rgba(255,255,255,0.96)",
         backdropFilter: "blur(16px)",
-        borderBottom: scrolled ? "1px solid #E2E8F0" : "1px solid transparent",
+        borderBottom: scrolled ? "1px solid #E5E5E5" : "1px solid transparent",
         boxShadow: scrolled ? "0 2px 20px rgba(15,23,42,0.07)" : "none",
       }}
     >
@@ -44,7 +44,7 @@ export function Navbar() {
             />
             <span
               className="font-bold text-[14.5px] tracking-tight"
-              style={{ fontFamily: "var(--app-font-display)", color: "#0F172A", letterSpacing: "-0.01em" }}
+              style={{ fontFamily: "var(--app-font-display)", color: "#111111", letterSpacing: "-0.01em" }}
             >
               Digitech Evoqe
             </span>
@@ -57,7 +57,7 @@ export function Navbar() {
               <span
                 className="px-4 py-2 rounded-md text-sm font-medium cursor-pointer transition-all duration-150 block"
                 style={{
-                  color: active(href) ? "#F97316" : "#374151",
+                  color: active(href) ? "#F97316" : "#444444",
                   background: active(href) ? "#FFF7ED" : "transparent",
                   fontFamily: "var(--app-font-sans)",
                 }}
@@ -87,7 +87,7 @@ export function Navbar() {
 
         <button
           className="md:hidden ml-auto p-2 rounded-md transition-colors"
-          style={{ color: "#374151" }}
+          style={{ color: "#444444" }}
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
@@ -102,13 +102,13 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden" style={{ background: "#fff", borderTop: "1px solid #F1F5F9" }}>
+        <div className="md:hidden" style={{ background: "#fff", borderTop: "1px solid #F5F5F5" }}>
           <div className="container py-4 flex flex-col gap-1">
             {navLinks.map(({ href, label }) => (
               <Link key={href} href={href}>
                 <span
                   className="block px-4 py-3 rounded-lg text-sm font-medium cursor-pointer"
-                  style={{ color: active(href) ? "#F97316" : "#374151", background: active(href) ? "#FFF7ED" : "transparent" }}
+                  style={{ color: active(href) ? "#F97316" : "#444444", background: active(href) ? "#FFF7ED" : "transparent" }}
                 >
                   {label}
                 </span>

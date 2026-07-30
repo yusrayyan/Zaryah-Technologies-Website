@@ -19,11 +19,11 @@ function CountStat({ target, suffix, label, light = false }: { target: number; s
     <div ref={ref} className="text-center">
       <div
         className="text-4xl md:text-5xl font-extrabold tabular-nums"
-        style={{ fontFamily: "var(--app-font-display)", color: light ? "#fff" : "#0F172A" }}
+        style={{ fontFamily: "var(--app-font-display)", color: light ? "#fff" : "#111111" }}
       >
         {value}{suffix}
       </div>
-      <div className="mt-2 text-sm" style={{ color: light ? "#94A3B8" : "#64748B" }}>{label}</div>
+      <div className="mt-2 text-sm" style={{ color: light ? "#999999" : "#777777" }}>{label}</div>
     </div>
   );
 }
@@ -99,7 +99,7 @@ export default function Home() {
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section
         className="relative min-h-[92vh] flex items-center overflow-hidden"
-        style={{ background: "#060D1F" }}
+        style={{ background: "#0A0A0A" }}
       >
         {/* Background grid */}
         <div
@@ -124,12 +124,12 @@ export default function Home() {
               <motion.h1
                 variants={fadeUp}
                 className="text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tight"
-                style={{ fontFamily: "var(--app-font-display)", color: "#F8FAFC" }}
+                style={{ fontFamily: "var(--app-font-display)", color: "#FFFFFF" }}
               >
                 We build the AI software that{" "}
                 <span style={{ color: "#F97316" }}>grows your business.</span>
               </motion.h1>
-              <motion.p variants={fadeUp} className="text-lg leading-relaxed max-w-lg" style={{ color: "#94A3B8" }}>
+              <motion.p variants={fadeUp} className="text-lg leading-relaxed max-w-lg" style={{ color: "#999999" }}>
                 Custom software, agentic AI, drop-in AI agents, and embedded engineers — production-grade, shipped in weeks. You bring the problem; we bring the team that's spent five years putting AI into production.
               </motion.p>
               <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
@@ -141,7 +141,7 @@ export default function Home() {
                 </Link>
                 <Link href="/work">
                   <span className="inline-flex items-center px-7 py-3.5 rounded-lg text-sm font-semibold cursor-pointer transition-all border"
-                    style={{ color: "#CBD5E1", borderColor: "#1E3A5F", background: "rgba(255,255,255,0.04)" }}>
+                    style={{ color: "#CCCCCC", borderColor: "#2A2A2A", background: "rgba(255,255,255,0.04)" }}>
                     See our work
                   </span>
                 </Link>
@@ -158,10 +158,10 @@ export default function Home() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
             <motion.h2 variants={fadeUp}
               className="text-3xl md:text-4xl font-bold max-w-3xl mb-6 leading-tight"
-              style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
+              style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>
               Every business is becoming an AI business. The only question is who you trust to build it.
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-base max-w-2xl mb-14 leading-relaxed" style={{ color: "#475569" }}>
+            <motion.p variants={fadeUp} className="text-base max-w-2xl mb-14 leading-relaxed" style={{ color: "#666666" }}>
               The companies pulling ahead aren't the ones with the flashiest demo — they're the ones who got AI into production and kept it there. Most never make it past the pilot. We close that gap.
             </motion.p>
             <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -172,9 +172,9 @@ export default function Home() {
               ].map(({ stat, label }) => (
                 <motion.div key={stat} variants={fadeUp}
                   className="p-8 rounded-2xl border card-hover"
-                  style={{ background: "#FFFBF7", borderColor: "#E2E8F0" }}>
+                  style={{ background: "#FFFBF7", borderColor: "#E5E5E5" }}>
                   <div className="text-5xl font-extrabold mb-3" style={{ fontFamily: "var(--app-font-display)", color: "#F97316" }}>{stat}</div>
-                  <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{label}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: "#666666" }}>{label}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -188,10 +188,10 @@ export default function Home() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
             <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>What we build</motion.p>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
-              style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
+              style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>
               Four ways we plug in.
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-base mb-12 max-w-2xl" style={{ color: "#475569" }}>
+            <motion.p variants={fadeUp} className="text-base mb-12 max-w-2xl" style={{ color: "#666666" }}>
               Pick one. Mix and match. Start with a proof-of-concept and scale to a full team — your call.
             </motion.p>
 
@@ -199,15 +199,15 @@ export default function Home() {
               {services.map((s) => (
                 <motion.div key={s.num} variants={fadeUp}
                   className="p-7 rounded-2xl border bg-white card-hover group cursor-pointer"
-                  style={{ borderColor: "#E2E8F0" }}>
+                  style={{ borderColor: "#E5E5E5" }}>
                   <div className="flex items-start gap-5">
                     <span className="font-mono text-xs font-bold shrink-0 mt-1 px-2.5 py-1 rounded-md"
                       style={{ color: "#F97316", background: "#FFF7ED" }}>
                       {s.num}
                     </span>
                     <div>
-                      <h3 className="font-bold text-base mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>{s.title}</h3>
-                      <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{s.desc}</p>
+                      <h3 className="font-bold text-base mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>{s.title}</h3>
+                      <p className="text-sm leading-relaxed" style={{ color: "#666666" }}>{s.desc}</p>
                       <Link href="/services">
                         <span className="inline-flex items-center gap-1 mt-3 text-xs font-semibold cursor-pointer transition-colors" style={{ color: "#F97316" }}>
                           Learn more <span className="translate-x-0 group-hover:translate-x-0.5 transition-transform inline-block">→</span>
@@ -222,7 +222,7 @@ export default function Home() {
             {/* By the numbers bar */}
             <motion.div variants={fadeUp}
               className="rounded-2xl p-10 mb-16 grid grid-cols-2 md:grid-cols-4 gap-8"
-              style={{ background: "#0F172A" }}>
+              style={{ background: "#111111" }}>
               {[
                 { target: 5, suffix: "+", label: "Years in production AI" },
                 { target: 35, suffix: "+", label: "Specialist engineers" },
@@ -236,33 +236,33 @@ export default function Home() {
             {/* Process steps */}
             <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>How we work</motion.p>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
-              style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
+              style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>
               From kickoff to production in weeks, not quarters.
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-base mb-10 max-w-2xl" style={{ color: "#475569" }}>
+            <motion.p variants={fadeUp} className="text-base mb-10 max-w-2xl" style={{ color: "#666666" }}>
               An agile, lean delivery loop. We ship something real every two weeks and iterate with you in the room.
             </motion.p>
             <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-10">
               {steps.map((s, i) => (
                 <motion.div key={s.title} variants={fadeUp}
                   className="p-5 rounded-xl border bg-white relative"
-                  style={{ borderColor: "#E2E8F0" }}>
+                  style={{ borderColor: "#E5E5E5" }}>
                   <div className="flex items-center gap-2 mb-3">
                     <span className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
                       style={{ background: "#FFF7ED", color: "#F97316", fontFamily: "var(--app-font-mono)" }}>
                       {i + 1}
                     </span>
-                    <span className="text-xs font-mono uppercase tracking-wider" style={{ color: "#94A3B8" }}>{s.week}</span>
+                    <span className="text-xs font-mono uppercase tracking-wider" style={{ color: "#999999" }}>{s.week}</span>
                   </div>
-                  <h4 className="font-bold text-sm mb-1.5" style={{ color: "#0F172A", fontFamily: "var(--app-font-display)" }}>{s.title}</h4>
-                  <p className="text-xs leading-relaxed" style={{ color: "#64748B" }}>{s.desc}</p>
+                  <h4 className="font-bold text-sm mb-1.5" style={{ color: "#111111", fontFamily: "var(--app-font-display)" }}>{s.title}</h4>
+                  <p className="text-xs leading-relaxed" style={{ color: "#777777" }}>{s.desc}</p>
                 </motion.div>
               ))}
             </motion.div>
             <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-3">
               {["✓ Daily syncs in your timezone", "✓ Code in your repo from day one", "✓ No lock-in — your IP"].map((p) => (
                 <span key={p} className="px-4 py-2 rounded-full text-xs font-medium border"
-                  style={{ color: "#374151", borderColor: "#D1D5DB", background: "#fff" }}>{p}</span>
+                  style={{ color: "#444444", borderColor: "#D4D4D4", background: "#fff" }}>{p}</span>
               ))}
               <Link href="/how-we-work">
                 <span className="text-xs font-semibold cursor-pointer" style={{ color: "#F97316" }}>See how we work, in detail →</span>
@@ -277,7 +277,7 @@ export default function Home() {
         <div className="container">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
             {/* Header stats */}
-            <motion.div variants={stagger} className="grid grid-cols-3 gap-8 pb-14 border-b mb-14" style={{ borderColor: "#E2E8F0" }}>
+            <motion.div variants={stagger} className="grid grid-cols-3 gap-8 pb-14 border-b mb-14" style={{ borderColor: "#E5E5E5" }}>
               {[
                 { target: 20, suffix: "M+", label: "Value created ($)" },
                 { target: 30, suffix: "K+", label: "Active users" },
@@ -289,10 +289,10 @@ export default function Home() {
 
             <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>Track record</motion.p>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
-              style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
+              style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>
               Shipped to production. At scale.
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-base mb-12 max-w-2xl" style={{ color: "#475569" }}>
+            <motion.p variants={fadeUp} className="text-base mb-12 max-w-2xl" style={{ color: "#666666" }}>
               A run of products taken to production across the education-to-employment journey — and beyond, into fintech, legal, healthcare, and infrastructure.
             </motion.p>
 
@@ -300,14 +300,14 @@ export default function Home() {
               {products.map(({ tag, title, desc, Icon }) => (
                 <motion.div key={title} variants={fadeUp}
                   className="rounded-2xl border bg-white p-6 card-hover"
-                  style={{ borderColor: "#E2E8F0" }}>
+                  style={{ borderColor: "#E5E5E5" }}>
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
                     style={{ background: "#FFF7ED" }}>
                     <Icon size={22} style={{ color: "#F97316" }} />
                   </div>
-                  <span className="eyebrow text-xs" style={{ color: "#64748B" }}>{tag}</span>
-                  <h3 className="font-bold text-base mt-2 mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>{title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{desc}</p>
+                  <span className="eyebrow text-xs" style={{ color: "#777777" }}>{tag}</span>
+                  <h3 className="font-bold text-base mt-2 mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>{title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "#666666" }}>{desc}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -324,7 +324,7 @@ export default function Home() {
             {/* Engagement models */}
             <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>Engagement models</motion.p>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-12 leading-tight"
-              style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
+              style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>
               Three doors. Walk through any of them.
             </motion.h2>
             <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -332,13 +332,13 @@ export default function Home() {
                 <motion.div key={t.title} variants={fadeUp}
                   className="rounded-2xl border p-8 flex flex-col gap-5 card-hover"
                   style={{
-                    background: t.featured ? "#0F172A" : "#fff",
-                    borderColor: t.featured ? "#0F172A" : "#E2E8F0",
+                    background: t.featured ? "#111111" : "#fff",
+                    borderColor: t.featured ? "#111111" : "#E5E5E5",
                   }}>
                   <div>
-                    <span className="eyebrow text-xs" style={{ color: t.featured ? "#38BDF8" : "#64748B" }}>{t.label}</span>
-                    <h3 className="font-bold text-lg mt-2 mb-3" style={{ fontFamily: "var(--app-font-display)", color: t.featured ? "#F8FAFC" : "#0F172A" }}>{t.title}</h3>
-                    <p className="text-sm leading-relaxed mb-2" style={{ color: t.featured ? "#94A3B8" : "#475569" }}>{t.desc}</p>
+                    <span className="eyebrow text-xs" style={{ color: t.featured ? "#38BDF8" : "#777777" }}>{t.label}</span>
+                    <h3 className="font-bold text-lg mt-2 mb-3" style={{ fontFamily: "var(--app-font-display)", color: t.featured ? "#FFFFFF" : "#111111" }}>{t.title}</h3>
+                    <p className="text-sm leading-relaxed mb-2" style={{ color: t.featured ? "#999999" : "#666666" }}>{t.desc}</p>
                     <p className="text-xs font-medium" style={{ color: t.featured ? "#F59E0B" : "#F97316" }}>{t.note}</p>
                   </div>
                   <Link href="/contact">
@@ -354,7 +354,7 @@ export default function Home() {
                 </motion.div>
               ))}
             </motion.div>
-            <motion.p variants={fadeUp} className="mt-6 text-xs text-center" style={{ color: "#94A3B8" }}>
+            <motion.p variants={fadeUp} className="mt-6 text-xs text-center" style={{ color: "#999999" }}>
               All three include: dedicated PM · daily syncs · weekly demos · your repo · your IP.
             </motion.p>
           </motion.div>
@@ -376,10 +376,10 @@ export default function Home() {
               </motion.div>
               <motion.div variants={fadeUp} className="space-y-4">
                 <p className="eyebrow" style={{ color: "#F97316" }}>Founder & CEO</p>
-                <h2 className="text-3xl font-bold" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
+                <h2 className="text-3xl font-bold" style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>
                   Built by Jubran Siddique.
                 </h2>
-                <p className="text-base leading-relaxed" style={{ color: "#475569" }}>
+                <p className="text-base leading-relaxed" style={{ color: "#666666" }}>
                   A technologist building AI for real-world impact — incubated at IIT Madras, recognized by the Forbes Business Council. He sets the architecture; the team ships it.
                 </p>
                 <Link href="/about">
@@ -394,16 +394,16 @@ export default function Home() {
       </section>
 
       {/* ── FINAL CTA BAND ────────────────────────────────────── */}
-      <section className="py-24" style={{ background: "#060D1F" }}>
+      <section className="py-24" style={{ background: "#0A0A0A" }}>
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger} className="space-y-6">
               <motion.p variants={fadeUp} className="eyebrow" style={{ color: "#38BDF8" }}>Let's build</motion.p>
               <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold leading-tight"
-                style={{ fontFamily: "var(--app-font-display)", color: "#F8FAFC" }}>
+                style={{ fontFamily: "var(--app-font-display)", color: "#FFFFFF" }}>
                 The first conversation is on the house.
               </motion.h2>
-              <motion.p variants={fadeUp} className="text-base leading-relaxed" style={{ color: "#94A3B8" }}>
+              <motion.p variants={fadeUp} className="text-base leading-relaxed" style={{ color: "#999999" }}>
                 Bring us a problem, a sketch, or a vague hunch. We'll come back in 48 hours with a plan, a price, and a path to production.
               </motion.p>
               <motion.div variants={stagger} className="space-y-3">
@@ -411,22 +411,22 @@ export default function Home() {
                   <motion.div key={item} variants={fadeUp} className="flex items-center gap-3">
                     <span className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 text-xs"
                       style={{ background: "rgba(249,115,22,0.3)", color: "#FB923C" }}>✓</span>
-                    <span className="text-sm" style={{ color: "#CBD5E1" }}>{item}</span>
+                    <span className="text-sm" style={{ color: "#CCCCCC" }}>{item}</span>
                   </motion.div>
                 ))}
               </motion.div>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-2xl p-8 space-y-4" style={{ background: "#0F1A35", border: "1px solid #1E3A5F" }}>
+              className="rounded-2xl p-8 space-y-4" style={{ background: "#111111", border: "1px solid #2A2A2A" }}>
               {["Name", "Work email", "Company"].map((f) => (
                 <div key={f} className="w-full rounded-lg px-4 py-3 text-sm"
-                  style={{ background: "#06111F", border: "1px solid #1E3A5F", color: "#475569", fontFamily: "var(--app-font-mono)" }}>
+                  style={{ background: "#0A0A0A", border: "1px solid #2A2A2A", color: "#666666", fontFamily: "var(--app-font-mono)" }}>
                   {f}
                 </div>
               ))}
               <div className="w-full rounded-lg px-4 py-3 text-sm"
-                style={{ background: "#06111F", border: "1px solid #1E3A5F", color: "#475569", fontFamily: "var(--app-font-mono)", minHeight: "100px" }}>
+                style={{ background: "#0A0A0A", border: "1px solid #2A2A2A", color: "#666666", fontFamily: "var(--app-font-mono)", minHeight: "100px" }}>
                 What are you trying to build?
               </div>
               <Link href="/contact">

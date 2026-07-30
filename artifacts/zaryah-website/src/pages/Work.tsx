@@ -25,17 +25,17 @@ const projects = [
   { tag: "Islamic AI · MENA", cats: ["Islamic AI"], title: "Ethical AI ecosystem", desc: "A culturally-aware, faith-conscious AI ecosystem built for the Islamic market — MENA and beyond.", Icon: Globe, color: "#10B981", bg: "#ECFDF5" },
   { tag: "LegalTech", cats: ["Legal"], title: "Legal AI agent", desc: "Document analysis, case management, and NLP-powered legal research in a single agent.", Icon: Scale, color: "#6366F1", bg: "#EEF2FF" },
   { tag: "Healthcare", cats: ["Healthcare"], title: "Maternal care AI", desc: "AI-powered support system for maternal and prenatal care — personalized and culturally sensitive.", Icon: Heart, color: "#EC4899", bg: "#FDF2F8" },
-  { tag: "Infrastructure", cats: ["Infrastructure"], title: "Decentralized AI infrastructure", desc: "Decentralized infrastructure layer for AI workloads — distributed compute and storage.", Icon: Network, color: "#64748B", bg: "#F8FAFC" },
+  { tag: "Infrastructure", cats: ["Infrastructure"], title: "Decentralized AI infrastructure", desc: "Decentralized infrastructure layer for AI workloads — distributed compute and storage.", Icon: Network, color: "#777777", bg: "#FFFFFF" },
 ];
 
 function CountStat({ target, suffix, label }: { target: number; suffix: string; label: string }) {
   const { value, ref } = useCountUp(target, 1.6);
   return (
     <div ref={ref} className="text-center">
-      <div className="text-4xl md:text-5xl font-extrabold" style={{ fontFamily: "var(--app-font-display)", color: "#F8FAFC" }}>
+      <div className="text-4xl md:text-5xl font-extrabold" style={{ fontFamily: "var(--app-font-display)", color: "#FFFFFF" }}>
         {value}{suffix}
       </div>
-      <div className="mt-2 text-sm" style={{ color: "#94A3B8" }}>{label}</div>
+      <div className="mt-2 text-sm" style={{ color: "#999999" }}>{label}</div>
     </div>
   );
 }
@@ -51,24 +51,24 @@ export default function Work() {
     <div className="flex flex-col w-full">
 
       {/* Hero */}
-      <section className="relative py-24 overflow-hidden" style={{ background: "#060D1F" }}>
+      <section className="relative py-24 overflow-hidden" style={{ background: "#0A0A0A" }}>
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{ backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "60px 60px" }}
         />
         <div className="container relative z-10">
           <motion.div initial="hidden" animate="visible" variants={stagger} className="space-y-6">
-            <motion.div variants={stagger} className="grid grid-cols-3 gap-8 pb-10 border-b max-w-lg" style={{ borderColor: "#1E3A5F" }}>
+            <motion.div variants={stagger} className="grid grid-cols-3 gap-8 pb-10 border-b max-w-lg" style={{ borderColor: "#2A2A2A" }}>
               <CountStat target={20} suffix="M+" label="Value created ($)" />
               <CountStat target={30} suffix="K+" label="Active users" />
               <CountStat target={7} suffix="" label="Countries" />
             </motion.div>
             <motion.p variants={fadeUp} className="eyebrow" style={{ color: "#38BDF8" }}>Work</motion.p>
             <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl font-extrabold leading-tight"
-              style={{ fontFamily: "var(--app-font-display)", color: "#F8FAFC" }}>
+              style={{ fontFamily: "var(--app-font-display)", color: "#FFFFFF" }}>
               Shipped to production. At scale.
             </motion.h1>
-            <motion.p variants={fadeUp} className="text-lg max-w-2xl" style={{ color: "#94A3B8" }}>
+            <motion.p variants={fadeUp} className="text-lg max-w-2xl" style={{ color: "#999999" }}>
               Filter by what you're looking for.
             </motion.p>
           </motion.div>
@@ -87,8 +87,8 @@ export default function Work() {
                 className="px-4 py-2 rounded-full text-xs font-mono tracking-wide border transition-all cursor-pointer"
                 style={{
                   background: active === f ? "#F97316" : "#fff",
-                  color: active === f ? "#fff" : "#64748B",
-                  borderColor: active === f ? "#F97316" : "#D1D5DB",
+                  color: active === f ? "#fff" : "#777777",
+                  borderColor: active === f ? "#F97316" : "#D4D4D4",
                 }}
               >
                 {f}
@@ -114,7 +114,7 @@ export default function Work() {
                   exit={{ opacity: 0, y: 24 }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   className="rounded-2xl border bg-white p-6 card-hover"
-                  style={{ borderColor: "#E2E8F0" }}
+                  style={{ borderColor: "#E5E5E5" }}
                 >
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
@@ -122,9 +122,9 @@ export default function Work() {
                   >
                     <p.Icon size={22} style={{ color: p.color }} />
                   </div>
-                  <span className="eyebrow text-xs" style={{ color: "#64748B" }}>{p.tag}</span>
-                  <h3 className="font-bold text-base mt-2 mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>{p.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#475569" }}>{p.desc}</p>
+                  <span className="eyebrow text-xs" style={{ color: "#777777" }}>{p.tag}</span>
+                  <h3 className="font-bold text-base mt-2 mb-2" style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>{p.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "#666666" }}>{p.desc}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -133,14 +133,14 @@ export default function Work() {
       </section>
 
       {/* CTA Band */}
-      <section className="py-24" style={{ background: "#060D1F" }}>
+      <section className="py-24" style={{ background: "#0A0A0A" }}>
         <div className="container text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="space-y-6 max-w-xl mx-auto">
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold"
-              style={{ fontFamily: "var(--app-font-display)", color: "#F8FAFC" }}>
+              style={{ fontFamily: "var(--app-font-display)", color: "#FFFFFF" }}>
               Want to build something with this team?
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-base" style={{ color: "#94A3B8" }}>
+            <motion.p variants={fadeUp} className="text-base" style={{ color: "#999999" }}>
               The first conversation is on the house.
             </motion.p>
             <motion.div variants={fadeUp}>

@@ -12,11 +12,11 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } 
 function Stat({ target, suffix, label }: { target: number; suffix: string; label: string }) {
   const { value, ref } = useCountUp(target, 1.6);
   return (
-    <div ref={ref} className="text-center p-6 rounded-2xl border" style={{ background: "#FFFBF7", borderColor: "#E2E8F0" }}>
+    <div ref={ref} className="text-center p-6 rounded-2xl border" style={{ background: "#FFFBF7", borderColor: "#E5E5E5" }}>
       <div className="text-4xl font-extrabold" style={{ fontFamily: "var(--app-font-display)", color: "#F97316" }}>
         {value}{suffix}
       </div>
-      <div className="mt-2 text-sm" style={{ color: "#64748B" }}>{label}</div>
+      <div className="mt-2 text-sm" style={{ color: "#777777" }}>{label}</div>
     </div>
   );
 }
@@ -39,7 +39,7 @@ export default function About() {
     <div className="flex flex-col w-full">
 
       {/* Hero */}
-      <section className="py-24" style={{ background: "#060D1F" }}>
+      <section className="py-24" style={{ background: "#0A0A0A" }}>
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{ backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "60px 60px" }}
@@ -48,10 +48,10 @@ export default function About() {
           <motion.div initial="hidden" animate="visible" variants={stagger} className="space-y-6 max-w-3xl">
             <motion.p variants={fadeUp} className="eyebrow" style={{ color: "#38BDF8" }}>About</motion.p>
             <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl font-extrabold leading-tight"
-              style={{ fontFamily: "var(--app-font-display)", color: "#F8FAFC" }}>
+              style={{ fontFamily: "var(--app-font-display)", color: "#FFFFFF" }}>
               Intelligence, driven by collective conscience.
             </motion.h1>
-            <motion.p variants={fadeUp} className="text-lg" style={{ color: "#94A3B8" }}>
+            <motion.p variants={fadeUp} className="text-lg" style={{ color: "#999999" }}>
               Digitech Evoqe is an AI software studio building production-grade systems across education, Islamic finance, and AI infrastructure. Five years in, IIT-incubated, 35 engineers — we exist to turn AI from a demo into an outcome.
             </motion.p>
           </motion.div>
@@ -87,13 +87,13 @@ export default function About() {
               </motion.div>
               <motion.div variants={stagger} className="space-y-5">
                 <motion.h2 variants={fadeUp} className="text-4xl font-bold"
-                  style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
+                  style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>
                   Jubran Siddique
                 </motion.h2>
-                <motion.p variants={fadeUp} className="text-base leading-relaxed" style={{ color: "#374151" }}>
+                <motion.p variants={fadeUp} className="text-base leading-relaxed" style={{ color: "#444444" }}>
                   A technology and AI specialist building systems for social impact — where intelligence is driven by collective conscience. Across the studio's ventures he plays one role: the architect. He defines how the systems are built and what outcome they're accountable to, then the engineering bench ships them.
                 </motion.p>
-                <motion.p variants={fadeUp} className="text-base leading-relaxed" style={{ color: "#374151" }}>
+                <motion.p variants={fadeUp} className="text-base leading-relaxed" style={{ color: "#444444" }}>
                   His work spans behavioural-science education, ethical financial technology, and decentralized AI — incubated at IIT Madras and recognized internationally, from the Forbes Business Council to the world's leading finance and technology forums.
                 </motion.p>
               </motion.div>
@@ -135,11 +135,11 @@ export default function About() {
                 },
               ].map(({ label, items }) => (
                 <motion.div key={label} variants={fadeUp}
-                  className="p-7 rounded-2xl border" style={{ background: "#fff", borderColor: "#E2E8F0" }}>
-                  <p className="text-xs font-mono uppercase tracking-widest font-bold mb-5" style={{ color: "#64748B" }}>{label}</p>
+                  className="p-7 rounded-2xl border" style={{ background: "#fff", borderColor: "#E5E5E5" }}>
+                  <p className="text-xs font-mono uppercase tracking-widest font-bold mb-5" style={{ color: "#777777" }}>{label}</p>
                   <ul className="space-y-2.5">
                     {items.map((item) => (
-                      <li key={item} className="text-sm leading-snug flex items-start gap-2" style={{ color: "#374151" }}>
+                      <li key={item} className="text-sm leading-snug flex items-start gap-2" style={{ color: "#444444" }}>
                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#F97316" }} />
                         {item}
                       </li>
@@ -158,41 +158,41 @@ export default function About() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger}>
             <motion.p variants={fadeUp} className="eyebrow mb-3" style={{ color: "#F97316" }}>Advisory board</motion.p>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
-              style={{ fontFamily: "var(--app-font-display)", color: "#0F172A" }}>
+              style={{ fontFamily: "var(--app-font-display)", color: "#111111" }}>
               Counsel that compounds.
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-base mb-12 max-w-2xl" style={{ color: "#475569" }}>
+            <motion.p variants={fadeUp} className="text-base mb-12 max-w-2xl" style={{ color: "#666666" }}>
               Senior civil service, deep institutional networks, and academic leadership — guiding the work and opening the doors.
             </motion.p>
 
-            <motion.p variants={fadeUp} className="text-xs font-mono uppercase tracking-widest font-bold mb-5" style={{ color: "#64748B" }}>Civil service & industry</motion.p>
+            <motion.p variants={fadeUp} className="text-xs font-mono uppercase tracking-widest font-bold mb-5" style={{ color: "#777777" }}>Civil service & industry</motion.p>
             <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
               {advisors.civil.map((a) => (
                 <motion.div key={a.name} variants={fadeUp}
                   className="p-5 rounded-xl border card-hover"
-                  style={{ background: "#FFFBF7", borderColor: "#E2E8F0" }}>
-                  <div className="font-bold text-sm mb-1" style={{ color: "#0F172A" }}>{a.name}</div>
-                  <div className="text-xs" style={{ color: "#64748B" }}>{a.role}</div>
+                  style={{ background: "#FFFBF7", borderColor: "#E5E5E5" }}>
+                  <div className="font-bold text-sm mb-1" style={{ color: "#111111" }}>{a.name}</div>
+                  <div className="text-xs" style={{ color: "#777777" }}>{a.role}</div>
                 </motion.div>
               ))}
             </motion.div>
 
-            <motion.p variants={fadeUp} className="text-xs font-mono uppercase tracking-widest font-bold mb-5" style={{ color: "#64748B" }}>Academia & education</motion.p>
+            <motion.p variants={fadeUp} className="text-xs font-mono uppercase tracking-widest font-bold mb-5" style={{ color: "#777777" }}>Academia & education</motion.p>
             <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
               {advisors.academia.map((a) => (
                 <motion.div key={a.name} variants={fadeUp}
                   className="p-5 rounded-xl border card-hover"
-                  style={{ background: "#FFFBF7", borderColor: "#E2E8F0" }}>
-                  <div className="font-bold text-sm mb-1" style={{ color: "#0F172A" }}>{a.name}</div>
-                  <div className="text-xs" style={{ color: "#64748B" }}>{a.role}</div>
+                  style={{ background: "#FFFBF7", borderColor: "#E5E5E5" }}>
+                  <div className="font-bold text-sm mb-1" style={{ color: "#111111" }}>{a.name}</div>
+                  <div className="text-xs" style={{ color: "#777777" }}>{a.role}</div>
                 </motion.div>
               ))}
             </motion.div>
 
             <motion.div variants={fadeUp}
-              className="p-7 rounded-2xl border" style={{ background: "#FFFBF7", borderColor: "#E2E8F0", borderLeft: "4px solid #F97316" }}>
-              <p className="text-xs font-mono uppercase tracking-widest font-bold mb-2" style={{ color: "#64748B" }}>Institutional access</p>
-              <p className="text-sm leading-relaxed" style={{ color: "#374151" }}>
+              className="p-7 rounded-2xl border" style={{ background: "#FFFBF7", borderColor: "#E5E5E5", borderLeft: "4px solid #F97316" }}>
+              <p className="text-xs font-mono uppercase tracking-widest font-bold mb-2" style={{ color: "#777777" }}>Institutional access</p>
+              <p className="text-sm leading-relaxed" style={{ color: "#444444" }}>
                 Direct relationships across India's education ecosystem, government bodies, and Tier-1 institutions — translating into faster procurement and warmer doors.
               </p>
             </motion.div>
@@ -201,14 +201,14 @@ export default function About() {
       </section>
 
       {/* CTA Band */}
-      <section className="py-24" style={{ background: "#060D1F" }}>
+      <section className="py-24" style={{ background: "#0A0A0A" }}>
         <div className="container text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="space-y-6 max-w-xl mx-auto">
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold"
-              style={{ fontFamily: "var(--app-font-display)", color: "#F8FAFC" }}>
+              style={{ fontFamily: "var(--app-font-display)", color: "#FFFFFF" }}>
               Want to build something with this team?
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-base" style={{ color: "#94A3B8" }}>
+            <motion.p variants={fadeUp} className="text-base" style={{ color: "#999999" }}>
               The first conversation is on the house.
             </motion.p>
             <motion.div variants={fadeUp}>
