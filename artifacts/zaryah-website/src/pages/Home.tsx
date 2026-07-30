@@ -111,9 +111,9 @@ export default function Home() {
         />
         {/* Orbs */}
         <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(37,99,235,0.22) 0%, transparent 70%)", filter: "blur(40px)", animation: "orb-float-1 14s ease-in-out infinite" }} />
+          style={{ background: "radial-gradient(circle, rgba(249,115,22,0.22) 0%, transparent 70%)", filter: "blur(40px)", animation: "orb-float-1 14s ease-in-out infinite" }} />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(99,102,241,0.16) 0%, transparent 70%)", filter: "blur(50px)", animation: "orb-float-2 18s ease-in-out infinite" }} />
+          style={{ background: "radial-gradient(circle, rgba(249,115,22,0.10) 0%, transparent 70%)", filter: "blur(50px)", animation: "orb-float-2 18s ease-in-out infinite" }} />
 
         <div className="container relative z-10 py-24">
           <div className="max-w-3xl">
@@ -127,7 +127,7 @@ export default function Home() {
                 style={{ fontFamily: "var(--app-font-display)", color: "#F8FAFC" }}
               >
                 We build the AI software that{" "}
-                <span style={{ color: "#3B82F6" }}>grows your business.</span>
+                <span style={{ color: "#F97316" }}>grows your business.</span>
               </motion.h1>
               <motion.p variants={fadeUp} className="text-lg leading-relaxed max-w-lg" style={{ color: "#94A3B8" }}>
                 Custom software, agentic AI, drop-in AI agents, and embedded engineers — production-grade, shipped in weeks. You bring the problem; we bring the team that's spent five years putting AI into production.
@@ -410,7 +410,7 @@ export default function Home() {
                 {["Free 60-minute architecture review", "Custom POC scope within 5 days", "Fixed quote — no hourly games"].map((item) => (
                   <motion.div key={item} variants={fadeUp} className="flex items-center gap-3">
                     <span className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 text-xs"
-                      style={{ background: "rgba(37,99,235,0.3)", color: "#60A5FA" }}>✓</span>
+                      style={{ background: "rgba(249,115,22,0.3)", color: "#FB923C" }}>✓</span>
                     <span className="text-sm" style={{ color: "#CBD5E1" }}>{item}</span>
                   </motion.div>
                 ))}

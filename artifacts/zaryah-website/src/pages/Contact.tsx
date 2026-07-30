@@ -11,7 +11,7 @@ function Check({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-start gap-3">
       <span className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-xs"
-        style={{ background: "rgba(37,99,235,0.25)", color: "#60A5FA" }}>✓</span>
+        style={{ background: "rgba(37,99,235,0.25)", color: "#FB923C" }}>✓</span>
       <span className="text-sm" style={{ color: "#CBD5E1" }}>{children}</span>
     </div>
   );

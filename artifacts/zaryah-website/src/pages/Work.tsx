@@ -17,11 +17,11 @@ const filters = ["All", "B2C", "B2B", "Education", "Islamic AI", "Legal", "Healt
 
 const projects = [
   { tag: "B2C · Education", cats: ["B2C", "Education"], title: "Adaptive learning platform", desc: "Behavioural-science learning, personalised to each student's thinking style and outcome goal.", Icon: BookOpen, color: "#F97316", bg: "#FFF7ED" },
-  { tag: "B2C · Skills & Career", cats: ["B2C", "Education"], title: "Career & skills builder", desc: "Coursework → job-ready capability for a specific target role, mapped to employer demand.", Icon: TrendingUp, color: "#0EA5E9", bg: "#F0F9FF" },
+  { tag: "B2C · Skills & Career", cats: ["B2C", "Education"], title: "Career & skills builder", desc: "Coursework → job-ready capability for a specific target role, mapped to employer demand.", Icon: TrendingUp, color: "#F97316", bg: "#FFF7ED" },
   { tag: "B2C · Jobs & Hiring", cats: ["B2C", "Education"], title: "Job-matching for seekers", desc: "Matches individuals to roles on 400+ behavioural parameters — not just keywords.", Icon: Users, color: "#8B5CF6", bg: "#F5F3FF" },
   { tag: "B2B · Competitive Exams", cats: ["B2B", "Education"], title: "Competitive-exam prep", desc: "Govt & civil-service exam preparation, measured directly against selection benchmarks.", Icon: Trophy, color: "#F59E0B", bg: "#FFFBEB" },
   { tag: "B2B · Colleges", cats: ["B2B", "Education"], title: "College placement platform", desc: "Every student tracked against one metric: did they get placed. Full lifecycle in one dashboard.", Icon: GraduationCap, color: "#F97316", bg: "#FFF7ED" },
-  { tag: "B2B · Corporate Hiring", cats: ["B2B", "Education"], title: "Corporate hiring marketplace", desc: "Employers hire behaviourally-matched, job-ready candidates — hiring on fit, not keywords.", Icon: Briefcase, color: "#0EA5E9", bg: "#F0F9FF" },
+  { tag: "B2B · Corporate Hiring", cats: ["B2B", "Education"], title: "Corporate hiring marketplace", desc: "Employers hire behaviourally-matched, job-ready candidates — hiring on fit, not keywords.", Icon: Briefcase, color: "#F97316", bg: "#FFF7ED" },
   { tag: "Islamic AI · MENA", cats: ["Islamic AI"], title: "Ethical AI ecosystem", desc: "A culturally-aware, faith-conscious AI ecosystem built for the Islamic market — MENA and beyond.", Icon: Globe, color: "#10B981", bg: "#ECFDF5" },
   { tag: "LegalTech", cats: ["Legal"], title: "Legal AI agent", desc: "Document analysis, case management, and NLP-powered legal research in a single agent.", Icon: Scale, color: "#6366F1", bg: "#EEF2FF" },
   { tag: "Healthcare", cats: ["Healthcare"], title: "Maternal care AI", desc: "AI-powered support system for maternal and prenatal care — personalized and culturally sensitive.", Icon: Heart, color: "#EC4899", bg: "#FDF2F8" },
